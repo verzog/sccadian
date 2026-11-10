@@ -76,12 +76,13 @@ of the editor) to change its settings in the sidebar:
 | Play automatically | On |
 | Seconds per slide | 6 |
 | Transition (slide or fade) and its length | Slide, 600 ms |
-| Height on computers / on phones | 480 px / 420 px |
+| Minimum height on computers / on phones | 480 px / 420 px (slides grow if their text needs more room) |
 | Show arrows, show dots | On, on |
 | Name for screen readers | "Featured" |
 
 Leave each slide's own *Minimum height* empty, or it overrides the carousel
-height. In the editor the slides are shown one under another so each can be
+height. If autoplay, arrows and dots are all turned off, the slides are shown
+one under another, because visitors would otherwise have no way to reach them. In the editor the slides are shown one under another so each can be
 edited; on the site they rotate.
 
 Accessibility: autoplay pauses while the mouse is over the carousel or a

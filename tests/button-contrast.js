@@ -128,12 +128,13 @@ function report(where, buttons) {
     await page.goto(`${site}/`);
     failures += report('Front end', await page.evaluate(collectButtons));
 
-    await page.goto(`${site}/wp-login.php`);
+    // Log straight in to the Site Editor, skipping the dashboard (its widgets are slow to load).
+    const editor = `${site}/wp-admin/site-editor.php?postType=wp_template&postId=scca//front-page&canvas=edit`;
+    await page.goto(`${site}/wp-login.php?redirect_to=${encodeURIComponent(editor)}`);
     await page.fill('#user_login', user);
     await page.fill('#user_pass', pass);
-    await Promise.all([page.waitForNavigation(), page.click('#wp-submit')]);
-
-    await page.goto(`${site}/wp-admin/site-editor.php?postType=wp_template&postId=scca//front-page&canvas=edit`);
+    await page.click('#wp-submit');
+    await page.waitForURL(/site-editor\.php/, {timeout: 60000});
     const frameEl = await page.waitForSelector('iframe[name="editor-canvas"]', {timeout: 60000});
     const frame = await frameEl.contentFrame();
     await frame.waitForSelector('.wp-block-button__link', {timeout: 60000});

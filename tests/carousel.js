@@ -49,6 +49,23 @@ function activeSlide(page) {
 	return page.$$eval('.wp-block-scca-carousel .scca-carousel__track > *', (s) => s.findIndex((el) => !el.inert));
 }
 
+/**
+ * Whether every slide's content (heading to button) lies fully inside the carousel's
+ * visible box, measured vertically (slides sit side by side, so only height can clip).
+ *
+ * @param {import('playwright').Page} page The page.
+ * @returns {Promise<boolean>} True if no slide's content is clipped.
+ */
+function contentFits(page) {
+	return page.$eval('.wp-block-scca-carousel', (root) => {
+		const box = root.getBoundingClientRect();
+		return [...root.querySelectorAll('.scca-carousel__track .wp-block-cover__inner-container')].every((c) => {
+			const r = c.getBoundingClientRect();
+			return r.height > 0 && r.top >= box.top - 1 && r.bottom <= box.bottom + 1;
+		});
+	});
+}
+
 (async() => {
 	const browser = await chromium.launch();
 
@@ -93,7 +110,8 @@ function activeSlide(page) {
 	check(before === 'Pause slides' && after === 'Play slides', `Pause button toggles (${before} -> ${after})`);
 
 	const height = await page.$eval('.wp-block-scca-carousel .scca-carousel__track', (t) => t.getBoundingClientRect().height);
-	check(Math.round(height) === 480, `Carousel is 480px tall on desktop (got ${Math.round(height)})`);
+	check(Math.round(height) >= 480, `Carousel is at least 480px tall on desktop (got ${Math.round(height)})`);
+	check(await contentFits(page), 'Desktop: every slide\'s content fits inside the carousel');
 
 	/**
 	 * Number of columns the feature grid shows.
@@ -108,7 +126,8 @@ function activeSlide(page) {
 	await page.setViewportSize({width: 375, height: 800});
 	check(await columns() === 1, `Feature grid: 1 column at 375px (got ${await columns()})`);
 	const mobileHeight = await page.$eval('.wp-block-scca-carousel .scca-carousel__track', (t) => t.getBoundingClientRect().height);
-	check(Math.round(mobileHeight) === 420, `Carousel is 420px tall on phones (got ${Math.round(mobileHeight)})`);
+	check(Math.round(mobileHeight) >= 420, `Carousel is at least 420px tall on phones (got ${Math.round(mobileHeight)})`);
+	check(await contentFits(page), 'Phone: every slide\'s heading, text and button fit (not clipped)');
 
 	check(errors.length === 0, `No JavaScript errors${errors.length ? ': ' + errors.join('; ') : ''}`);
 

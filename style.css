@@ -2,7 +2,7 @@
 Theme Name: SCCA
 Description: Block theme for the Skin Cancer College Australasia website, with reusable section patterns.
 Author: Skin Cancer College Australasia
-Version: 0.2.0
+Version: 0.2.1
 Requires at least: 6.6
 Tested up to: 6.9
 Requires PHP: 8.1
@@ -68,6 +68,14 @@ Text Domain: scca
 .scca-hero h2 {
 	color: var(--wp--preset--color--orange);
 	text-transform: uppercase;
+}
+
+/* Smaller hero headings on phones, so slides stay a sensible height. */
+@media (max-width: 781px) {
+	.scca-hero h1,
+	.scca-hero h2 {
+		font-size: var(--wp--preset--font-size--x-large);
+	}
 }
 
 /*

@@ -111,6 +111,9 @@ jobs:
           PHP
           wp core install --path="$WP_PATH" --url="$SITE" --title="SCCA CI" \
             --admin_user=admin --admin_password=admin --admin_email=ci@example.com --skip-email
+          # Answer wordpress.org requests instantly in CI (see tests/ci-offline.php).
+          mkdir -p "$WP_PATH/wp-content/mu-plugins"
+          cp scca/tests/ci-offline.php "$WP_PATH/wp-content/mu-plugins/"
           wp option update timezone_string "$TZ" --path="$WP_PATH"
           wp option update date_format "d/m/Y" --path="$WP_PATH"
 
@@ -120,7 +123,8 @@ jobs:
           mkdir -p "$WP_PATH/wp-content/themes"
           git archive --format=tar --prefix=scca/ HEAD | tar -x -C "$WP_PATH/wp-content/themes"
           wp theme activate scca --path="$WP_PATH"
-          wp theme status scca --path="$WP_PATH"
+          # Not "wp theme status": it checks wordpress.org for updates, which CI does not contact.
+          [ "$(wp option get stylesheet --path="$WP_PATH")" = "scca" ] || { echo "::error::scca is not the active theme."; exit 1; }
 
       - name: Create sample content
         run: |
