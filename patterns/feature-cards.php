@@ -15,7 +15,7 @@
  * Title: Feature cards
  * Slug: scca/feature-cards
  * Categories: scca
- * Description: Four image cards linking to key sections. Add a photo to each card in the editor.
+ * Description: Four image cards linking to key sections, each with its own link text. Add a photo to each card in the editor.
  *
  * @package    scca
  * @copyright  © Skin Cancer College Australasia
@@ -32,7 +32,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p><a href="/education/">Learn more →</a></p>
+<p><a href="/education/">Browse courses →</a></p>
 <!-- /wp:paragraph --></div></div>
 <!-- /wp:cover --></div>
 <!-- /wp:column -->
@@ -44,7 +44,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p><a href="/membership/">Learn more →</a></p>
+<p><a href="/membership/">Join SCCA →</a></p>
 <!-- /wp:paragraph --></div></div>
 <!-- /wp:cover --></div>
 <!-- /wp:column -->
@@ -56,7 +56,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p><a href="/events/">Learn more →</a></p>
+<p><a href="/events/">See upcoming events →</a></p>
 <!-- /wp:paragraph --></div></div>
 <!-- /wp:cover --></div>
 <!-- /wp:column -->
@@ -68,7 +68,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p><a href="/new-zealand/">Learn more →</a></p>
+<p><a href="/new-zealand/">Visit SCCA New Zealand →</a></p>
 <!-- /wp:paragraph --></div></div>
 <!-- /wp:cover --></div>
 <!-- /wp:column --></div>
