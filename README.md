@@ -54,12 +54,12 @@ All are under *SCCA sections* in the block inserter:
 | Hero carousel | Rotating slides, each with an image, orange heading, text and button |
 | Stay connected | Lavender strip with social links |
 | Feature cards | Four image cards with a heading, text and button: 4 across on large screens, 2 on tablets, 1 on phones |
-| Latest news | The three newest posts |
+| Latest news | The three newest posts as cards (image, title, excerpt, date, Read more), with an All News button: 3 across, 2 on tablets, 1 on phones |
 | SkinPro CPD promotion | Magenta band with a white panel |
 | Upcoming events | Heading and a link to the iMIS events calendar |
 | Patient resources | Orange band linking to SCAN your Skin |
 | Testimonials | Three quote cards |
-| Post grid (hidden) | News cards with pagination, used by the blog, archive and search templates |
+| Post grid (hidden) | The same news cards with pagination, used by the blog, archive and search templates |
 
 ## Carousel block
 

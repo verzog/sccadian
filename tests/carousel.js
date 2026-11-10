@@ -119,12 +119,29 @@ function contentFits(page) {
 	 * @returns {Promise<number>} Column count.
 	 */
 	const columns = () => page.$eval('.scca-feature-grid', (g) => getComputedStyle(g).gridTemplateColumns.split(' ').length);
+	/**
+	 * Number of columns the news grid shows.
+	 *
+	 * @returns {Promise<number>} Column count.
+	 */
+	const newsColumns = () => page.$eval('.scca-news-grid', (g) => getComputedStyle(g).gridTemplateColumns.split(' ').length);
+	const readMore = await page.$$eval('.scca-news-grid .wp-block-read-more', (links) => links.map((a) => ({
+		text: a.textContent.trim(),
+		title: (a.closest('.scca-card').querySelector('.wp-block-post-title') || {}).textContent || '',
+	})));
+	check(readMore.length > 0, `News cards have Read more buttons (found ${readMore.length})`);
+	check(readMore.every((r) => r.title.trim() && r.text.includes(r.title.trim())),
+		'Each Read more includes its story title for screen readers');
+
 	check(await page.locator('.scca-feature-grid .wp-block-button__link').count() === 4, 'Four feature cards with buttons');
 	check(await columns() === 4, `Feature grid: 4 columns at 1280px (got ${await columns()})`);
+	check(await newsColumns() === 3, `News grid: 3 columns at 1280px (got ${await newsColumns()})`);
 	await page.setViewportSize({width: 800, height: 900});
 	check(await columns() === 2, `Feature grid: 2 columns at 800px (got ${await columns()})`);
+	check(await newsColumns() === 2, `News grid: 2 columns at 800px (got ${await newsColumns()})`);
 	await page.setViewportSize({width: 375, height: 800});
 	check(await columns() === 1, `Feature grid: 1 column at 375px (got ${await columns()})`);
+	check(await newsColumns() === 1, `News grid: 1 column at 375px (got ${await newsColumns()})`);
 	const mobileHeight = await page.$eval('.wp-block-scca-carousel .scca-carousel__track', (t) => t.getBoundingClientRect().height);
 	check(Math.round(mobileHeight) >= 420, `Carousel is at least 420px tall on phones (got ${Math.round(mobileHeight)})`);
 	check(await contentFits(page), 'Phone: every slide\'s heading, text and button fit (not clipped)');

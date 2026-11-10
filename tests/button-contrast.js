@@ -56,7 +56,7 @@ function collectButtons() {
         }
         return found;
     };
-    return [...document.querySelectorAll('.wp-element-button, .wp-block-button__link')]
+    return [...document.querySelectorAll('.wp-element-button, .wp-block-button__link, .wp-block-read-more')]
         .filter((el) => el.offsetParent !== null)
         .map((el) => {
             const style = getComputedStyle(el);
