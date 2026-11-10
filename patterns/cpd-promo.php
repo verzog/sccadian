@@ -35,7 +35,7 @@
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"magenta"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-magenta-background-color has-background wp-element-button" href="/skinpro-cpd/">Learn more</a></div>
+<div class="wp-block-button"><a class="wp-block-button__link has-magenta-background-color has-background wp-element-button" href="/skinpro-cpd/">Learn more about SkinPro CPD</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group --></div>
