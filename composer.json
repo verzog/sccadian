@@ -1,0 +1,22 @@
+{
+    "name": "scca/scca-theme",
+    "description": "Development tooling for the SCCA WordPress block theme. Not shipped in the release zip.",
+    "type": "wordpress-theme",
+    "license": "proprietary",
+    "require-dev": {
+        "php-parallel-lint/php-parallel-lint": "^1.4",
+        "phpcompatibility/phpcompatibility-wp": "^2.1",
+        "wp-coding-standards/wpcs": "^3.1"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        },
+        "sort-packages": true
+    },
+    "scripts": {
+        "lint": "parallel-lint --exclude vendor --exclude .git .",
+        "phpcs": "phpcs --warning-severity=1",
+        "phpcbf": "phpcbf"
+    }
+}

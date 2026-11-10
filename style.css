@@ -1,0 +1,168 @@
+/*
+Theme Name: SCCA
+Description: Block theme for the Skin Cancer College Australasia website, with reusable section patterns.
+Author: Skin Cancer College Australasia
+Version: 0.1.1
+Requires at least: 6.6
+Tested up to: 6.9
+Requires PHP: 8.1
+License: Proprietary — Skin Cancer College Australasia, all rights reserved
+Text Domain: scca
+*/
+
+/*
+ * Copyright (c) Skin Cancer College Australasia. All rights reserved.
+ * Most styling lives in theme.json. These rules cover only what theme.json cannot express.
+ */
+
+/* Section wrappers: vertical rhythm for full-width bands. */
+.scca-section {
+	padding-top: var(--wp--preset--spacing--60);
+	padding-bottom: var(--wp--preset--spacing--60);
+}
+
+.scca-section--tight {
+	padding-top: var(--wp--preset--spacing--40);
+	padding-bottom: var(--wp--preset--spacing--40);
+}
+
+/* Utility bar above the header. */
+.scca-topbar {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: var(--wp--preset--font-size--small);
+}
+
+.scca-topbar a {
+	color: var(--wp--preset--color--white);
+}
+
+.scca-topbar .wp-block-search__input {
+	border: 0;
+	border-radius: 7px;
+	min-height: 40px;
+}
+
+/* Main header row. */
+.scca-header {
+	padding-top: 18px;
+	padding-bottom: 18px;
+	border-bottom: 1px solid var(--wp--preset--color--border);
+}
+
+/* "Join Our Member Community" band. */
+.scca-join-band {
+	margin: 0;
+	padding: 14px 24px;
+	text-align: center;
+	font-weight: 600;
+	font-size: var(--wp--preset--font-size--medium);
+}
+
+.scca-join-band a {
+	color: var(--wp--preset--color--white);
+}
+
+/* Hero: heading uses the brand orange; large text passes contrast on purple. */
+.scca-hero h1 {
+	color: var(--wp--preset--color--orange);
+	text-transform: uppercase;
+}
+
+/* Feature cards: image cards with the title sitting at the bottom. */
+.scca-feature-card {
+	border-radius: 7px;
+	overflow: hidden;
+}
+
+.scca-feature-card .wp-block-cover__inner-container {
+	align-self: flex-end;
+}
+
+.scca-feature-card h3,
+.scca-feature-card a {
+	color: var(--wp--preset--color--white);
+}
+
+.scca-feature-card h3 {
+	font-weight: 400;
+	font-size: var(--wp--preset--font-size--large);
+}
+
+/* Cards on light backgrounds (news, testimonials, events). */
+.scca-card {
+	background: var(--wp--preset--color--white);
+	border-radius: 7px;
+	overflow: hidden;
+	height: 100%;
+}
+
+.scca-card__body {
+	padding: 20px;
+}
+
+.scca-card--bordered {
+	border: 1px solid var(--wp--preset--color--border);
+}
+
+.scca-news .wp-block-post-featured-image img {
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+}
+
+.scca-news .wp-block-post-title a {
+	color: var(--wp--preset--color--purple);
+	text-decoration: none;
+}
+
+/* White panel inside the magenta SkinPro band. */
+.scca-panel {
+	background: var(--wp--preset--color--white);
+	border-radius: 7px;
+	padding: 36px;
+}
+
+/* Footer. */
+.scca-footer {
+	padding-top: var(--wp--preset--spacing--60);
+	padding-bottom: 32px;
+}
+
+.scca-footer a {
+	color: var(--wp--preset--color--white);
+}
+
+.scca-footer h2 {
+	color: var(--wp--preset--color--white);
+	font-size: var(--wp--preset--font-size--large);
+	font-weight: 700;
+}
+
+.scca-footer-links {
+	list-style: none;
+	padding-left: 0;
+}
+
+.scca-footer-links li {
+	margin-bottom: 8px;
+}
+
+.scca-footer-legal {
+	border-top: 1px solid rgba(255, 255, 255, 0.25);
+	padding-top: var(--wp--preset--spacing--40);
+	font-size: var(--wp--preset--font-size--small);
+}
+
+/*
+ * Keep keyboard focus visible on dark and orange backgrounds. The default purple
+ * focus ring disappears on purple. Cover blocks (hero, feature cards) put the
+ * colour class on an inner span, so they are listed by their own class.
+ */
+.has-purple-background-color a:focus-visible,
+.has-magenta-background-color a:focus-visible,
+.scca-hero a:focus-visible,
+.scca-feature-card a:focus-visible,
+.scca-join-band a:focus-visible {
+	outline: 2px solid var(--wp--preset--color--white);
+	outline-offset: 2px;
+}

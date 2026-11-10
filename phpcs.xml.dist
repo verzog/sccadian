@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="SCCA theme">
+    <description>WordPress Coding Standards for the SCCA block theme.</description>
+
+    <file>.</file>
+    <exclude-pattern>/vendor/*</exclude-pattern>
+    <exclude-pattern>/node_modules/*</exclude-pattern>
+
+    <arg name="extensions" value="php"/>
+    <arg name="colors"/>
+    <arg value="sp"/>
+
+    <!-- Lowest PHP version the theme supports (style.css "Requires PHP") and WordPress version ("Requires at least"). -->
+    <config name="testVersion" value="8.1-"/>
+    <config name="minimum_wp_version" value="6.6"/>
+
+    <rule ref="WordPress">
+        <!-- Proprietary theme: the "//" licence header comes first, so the docblock is not the file comment. -->
+        <exclude name="Squiz.Commenting.FileComment.WrongStyle"/>
+        <!-- House style uses short arrays ([]), not array(). -->
+        <exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
+    </rule>
+    <rule ref="PHPCompatibilityWP"/>
+
+    <!-- Every translatable string must use the theme's text domain. -->
+    <rule ref="WordPress.WP.I18n">
+        <properties>
+            <property name="text_domain" type="array">
+                <element value="scca"/>
+            </property>
+        </properties>
+    </rule>
+
+    <!-- Every function, class and global the theme declares must start with scca. -->
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+        <properties>
+            <property name="prefixes" type="array">
+                <element value="scca"/>
+            </property>
+        </properties>
+    </rule>
+</ruleset>
