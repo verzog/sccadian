@@ -153,8 +153,8 @@ jobs:
           check /                   200 scca-hero
           check /ci-news-post/      200 "Hello from CI."
           check /ci-page/           200
-          check /category/uncategorized/ 200
-          check '/?s=CI'            200
+          check /category/uncategorized/ 200 scca-news
+          check '/?s=CI'            200 scca-news
           check /no-such-page/      404 "Page not found"
           exit $fail
 

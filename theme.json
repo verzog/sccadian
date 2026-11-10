@@ -1,5 +1,5 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"$schema": "https://schemas.wp.org/wp/6.6/theme.json",
 	"version": 3,
 	"settings": {
 		"appearanceTools": true,
@@ -18,7 +18,7 @@
 				{ "slug": "purple-mid", "name": "Purple (mid)", "color": "#493087" },
 				{ "slug": "purple-dark", "name": "Purple (dark text)", "color": "#2B1A52" },
 				{ "slug": "magenta", "name": "SkinPro magenta", "color": "#A31C87" },
-				{ "slug": "accent", "name": "Accent orange (buttons)", "color": "#FF772E" },
+				{ "slug": "accent", "name": "Accent orange (buttons, accessible)", "color": "#C2410C" },
 				{ "slug": "orange", "name": "SCCA orange", "color": "#FF772E" },
 				{ "slug": "orange-dark", "name": "Orange (accessible on white text)", "color": "#C2410C" },
 				{ "slug": "lavender", "name": "Lavender", "color": "#EEE8F7" },
@@ -115,7 +115,7 @@
 				"border": { "radius": "7px" },
 				"spacing": { "padding": { "top": "12px", "bottom": "12px", "left": "22px", "right": "22px" } },
 				"typography": { "fontSize": "16px", "fontWeight": "600" },
-				":hover": { "color": { "background": "var:preset|color|purple" } },
+				":hover": { "color": { "background": "#9A3412" } },
 				":focus": { "outline": { "color": "var:preset|color|purple", "offset": "2px", "style": "solid", "width": "2px" } }
 			}
 		},
