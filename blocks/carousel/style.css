@@ -26,16 +26,12 @@
 	color: var(--wp--preset--color--white, #fff);
 }
 
-/* Once view.js has run: one slide at a time. */
-.wp-block-scca-carousel.is-initialised .scca-carousel__track {
-	height: var(--scca-carousel-current-height);
-}
+/*
+ * Once view.js has run: one slide at a time. The height setting is a minimum;
+ * every slide grows to the tallest slide's content, so nothing is clipped on phones.
+ */
 
-.wp-block-scca-carousel.is-initialised .scca-carousel__track > .wp-block-cover {
-	height: var(--scca-carousel-current-height);
-}
-
-/* Slide transition: the track moves sideways. */
+/* Slide transition: the track moves sideways. Flex items stretch to the tallest slide. */
 .wp-block-scca-carousel.is-initialised.is-transition-slide .scca-carousel__track {
 	display: flex;
 	gap: 0;
@@ -47,14 +43,13 @@
 	flex: 0 0 100%;
 }
 
-/* Fade transition: slides stack and cross-fade. */
+/* Fade transition: slides share one grid cell, so the track is as tall as the tallest slide. */
 .wp-block-scca-carousel.is-initialised.is-transition-fade .scca-carousel__track {
-	position: relative;
+	display: grid;
 }
 
 .wp-block-scca-carousel.is-initialised.is-transition-fade .scca-carousel__track > .wp-block-cover {
-	position: absolute;
-	inset: 0;
+	grid-area: 1 / 1;
 	opacity: 0;
 	transition: opacity var(--scca-carousel-duration, 600ms) ease-in-out;
 }

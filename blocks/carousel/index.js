@@ -107,7 +107,7 @@
 						PanelBody,
 						{title: __('Size', 'scca')},
 						el(RangeControl, {
-							label: __('Height on computers (px)', 'scca'),
+							label: __('Minimum height on computers (px)', 'scca'),
 							value: a.height,
 							min: 240,
 							max: 900,
@@ -116,9 +116,9 @@
 							__nextHasNoMarginBottom: true,
 						}),
 						el(RangeControl, {
-							label: __('Height on phones (px)', 'scca'),
-							help: __('Used on screens narrower than 782px. Leave each slide\'s own Minimum height empty, '
-								+ 'or it overrides these.', 'scca'),
+							label: __('Minimum height on phones (px)', 'scca'),
+							help: __('Used on screens narrower than 782px. Slides grow taller if their text needs more room. '
+								+ 'Leave each slide\'s own Minimum height empty, or it overrides these.', 'scca'),
 							value: a.mobileHeight,
 							min: 240,
 							max: 900,
@@ -138,6 +138,10 @@
 						}),
 						el(ToggleControl, {
 							label: __('Show slide dots', 'scca'),
+							help: (!a.autoplay && !a.showArrows && !a.showDots)
+								? __('With autoplay, arrows and dots all off, visitors could not reach the other slides, '
+									+ 'so the slides are shown one under another instead.', 'scca')
+								: undefined,
 							checked: a.showDots,
 							onChange: (v) => set({showDots: v}),
 							__nextHasNoMarginBottom: true,

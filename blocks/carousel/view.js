@@ -54,6 +54,10 @@
 
 		const speed = Math.max(3, Number(root.dataset.speed) || 6) * 1000;
 		const wantsAutoplay = root.dataset.autoplay === 'true';
+		// With no autoplay, arrows or dots there is no way to reach the other slides: leave them stacked.
+		if (!wantsAutoplay && root.dataset.arrows === 'false' && root.dataset.dots === 'false') {
+			return;
+		}
 		let index = 0;
 		let timer = null;
 		let paused = !wantsAutoplay || reducedMotion.matches;
