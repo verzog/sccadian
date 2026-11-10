@@ -1,3 +1,7 @@
 /vendor/
 /node_modules/
 /*.zip
+
+# Screenshots written by the browser tests.
+/homepage-*.png
+/site-editor.png

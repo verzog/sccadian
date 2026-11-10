@@ -46,6 +46,12 @@ jobs:
         if: ${{ !cancelled() }}
         run: php tests/check-theme.php
 
+      - name: No stray images outside assets/
+        if: ${{ !cancelled() }}
+        run: |
+          stray=$(git ls-files | grep -iE '\.(png|jpe?g|gif|webp)$' | grep -v '^assets/' || true)
+          if [ -n "$stray" ]; then echo "$stray"; echo "::error::Images outside assets/ would ship in the theme zip."; exit 1; fi
+
       - name: LF line endings, no trailing whitespace
         if: ${{ !cancelled() }}
         run: |
