@@ -66,7 +66,7 @@ All are under *SCCA sections* in the block inserter:
 For news stories and other posts, the block inserter (the **+** button) has two
 more pattern sections, built from WordPress's own blocks:
 
-**SCCA story components:** Two columns, Three columns, Card group, Image with
+**SCCA story components:** Two columns, Three columns, Card group, Card row, Image with
 zoom (opens full size when clicked), Image and text, Video and text (paste a
 YouTube or Vimeo link), Jumbotron, Accordion, Table, Event banner and Key
 points. Insert one, then replace the `[...]` text and the placeholder images
@@ -76,6 +76,13 @@ points. Insert one, then replace the `[...]` text and the placeholder images
 feature: whole-post starting points. Depending on the WordPress version, *Posts
 > Add New Post* may offer them straight away; otherwise insert them from the
 inserter.
+
+**Card row** is a theme block (also under *Design* in the inserter): a row of
+cards that scrolls sideways, with previous and next arrows, and swipe on
+phones. Select the card row (List View helps) to set the card size (small,
+medium or large: every card the same width, images cropped to the same
+height), drop shadow, rounded corners and arrows. Each card is a Group block,
+so change its colours in the sidebar; duplicate a card to add another.
 
 These replace the Bootstrap components of the Moodle `tiny_bootstrap` plugin.
 Bootstrap itself is not loaded: the theme's own styles cover the same layouts,

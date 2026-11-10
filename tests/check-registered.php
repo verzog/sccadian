@@ -38,8 +38,10 @@ foreach ( [ 'scca', 'scca-story', 'scca-story-layouts' ] as $scca_category ) {
 	}
 }
 
-if ( ! WP_Block_Type_Registry::get_instance()->is_registered( 'scca/carousel' ) ) {
-	$scca_errors[] = 'Block scca/carousel is not registered.';
+foreach ( [ 'scca/carousel', 'scca/card-row' ] as $scca_block ) {
+	if ( ! WP_Block_Type_Registry::get_instance()->is_registered( $scca_block ) ) {
+		$scca_errors[] = "Block $scca_block is not registered.";
+	}
 }
 
 $scca_registry = WP_Block_Patterns_Registry::get_instance();

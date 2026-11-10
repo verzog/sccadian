@@ -181,6 +181,10 @@ jobs:
         if: ${{ !cancelled() }}
         run: node scca/tests/editor-patterns.js "$SITE" admin admin "$(cat showcase-id.txt)"
 
+      - name: Card row works in a browser
+        if: ${{ !cancelled() }}
+        run: node scca/tests/card-row.js "$SITE/pattern-showcase/"
+
       - name: Carousel and feature grid work in a browser
         if: ${{ !cancelled() }}
         run: node scca/tests/carousel.js "$SITE"

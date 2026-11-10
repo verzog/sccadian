@@ -1,0 +1,121 @@
+/*
+ * Card row block: front-end and editor styles.
+ * Copyright (c) Skin Cancer College Australasia. All rights reserved.
+ */
+
+.wp-block-scca-card-row {
+	--scca-card-row-width: 300px;
+	--scca-card-row-image: 170px;
+	position: relative;
+}
+
+.wp-block-scca-card-row.is-size-small {
+	--scca-card-row-width: 240px;
+	--scca-card-row-image: 135px;
+}
+
+.wp-block-scca-card-row.is-size-large {
+	--scca-card-row-width: 360px;
+	--scca-card-row-image: 200px;
+}
+
+/* A native horizontal scroller: swipe, trackpad and keyboard work without JavaScript. */
+.wp-block-scca-card-row .scca-card-row__track {
+	display: flex;
+	gap: var(--wp--preset--spacing--40, 24px);
+	padding: 4px 4px 12px;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scroll-padding-left: 4px;
+	overscroll-behavior-x: contain;
+}
+
+.wp-block-scca-card-row .scca-card-row__track > * {
+	display: flex;
+	flex: 0 0 min(var(--scca-card-row-width), 85%);
+	flex-direction: column;
+	margin: 0;
+	overflow: hidden;
+	scroll-snap-align: start;
+	background: var(--wp--preset--color--white, #fff);
+}
+
+.wp-block-scca-card-row.has-rounded-cards .scca-card-row__track > * {
+	border-radius: 7px;
+}
+
+.wp-block-scca-card-row:not(.has-rounded-cards) .scca-card-row__track > * {
+	border-radius: 0;
+}
+
+.wp-block-scca-card-row.has-card-shadow .scca-card-row__track > * {
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* Every image is cropped to the same band, so the cards line up. */
+.wp-block-scca-card-row .scca-card-row__track > * > .wp-block-image {
+	margin: 0;
+}
+
+.wp-block-scca-card-row .scca-card-row__track > * > .wp-block-image img {
+	width: 100%;
+	height: var(--scca-card-row-image);
+	object-fit: cover;
+}
+
+/* Buttons line up at the foot of every card. */
+.wp-block-scca-card-row .scca-card__body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+.wp-block-scca-card-row .scca-card__body > .wp-block-buttons {
+	margin-top: auto;
+	padding-top: 8px;
+}
+
+.wp-block-scca-card-row .scca-card-row__track:focus-visible {
+	outline: 2px solid var(--wp--preset--color--purple, #442980);
+	outline-offset: 2px;
+}
+
+.wp-block-scca-card-row .scca-card-row__controls {
+	display: flex;
+	gap: 8px;
+	justify-content: flex-end;
+	margin-top: 8px;
+}
+
+.wp-block-scca-card-row .scca-card-row__controls[hidden] {
+	display: none;
+}
+
+.wp-block-scca-card-row .scca-card-row__arrow {
+	width: 44px;
+	height: 44px;
+	border: 2px solid var(--wp--preset--color--purple, #442980);
+	border-radius: 4px;
+	background: var(--wp--preset--color--white, #fff);
+	color: var(--wp--preset--color--purple, #442980);
+	font: inherit;
+	font-size: 20px;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.wp-block-scca-card-row .scca-card-row__arrow:disabled {
+	opacity: 0.4;
+	cursor: default;
+}
+
+.wp-block-scca-card-row .scca-card-row__arrow:focus-visible {
+	outline: 2px solid var(--wp--preset--color--purple, #442980);
+	outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.wp-block-scca-card-row .scca-card-row__track {
+		scroll-behavior: auto;
+	}
+}

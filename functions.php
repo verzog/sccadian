@@ -72,11 +72,12 @@ function scca_register_pattern_category(): void {
 add_action( 'init', 'scca_register_pattern_category' );
 
 /**
- * Register the theme's own blocks (the carousel).
+ * Register the theme's own blocks (carousel, card row).
  *
  * @return void
  */
 function scca_register_blocks(): void {
 	register_block_type( __DIR__ . '/blocks/carousel' );
+	register_block_type( __DIR__ . '/blocks/card-row' );
 }
 add_action( 'init', 'scca_register_blocks' );
