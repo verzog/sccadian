@@ -15,7 +15,7 @@
  * Title: Latest news
  * Slug: scca/latest-news
  * Categories: scca
- * Description: The three most recent posts as cards.
+ * Description: The three most recent posts as cards with image, title, excerpt, date and a Read more button.
  *
  * @package    scca
  * @copyright  © Skin Cancer College Australasia
@@ -29,20 +29,26 @@
 <h2 class="wp-block-heading">Latest News</h2>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph -->
-<p><a href="/news/">All News →</a></p>
-<!-- /wp:paragraph --></div>
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/news/">All News</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
 <!-- /wp:group -->
 
 <!-- wp:query {"queryId":1,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"className":"scca-news"} -->
-<div class="wp-block-query scca-news"><!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
-<!-- wp:group {"className":"scca-card","layout":{"type":"default"}} -->
-<div class="wp-block-group scca-card"><!-- wp:post-featured-image {"isLink":true} /-->
+<div class="wp-block-query scca-news"><!-- wp:post-template {"className":"scca-news-grid","layout":{"type":"default"}} -->
+<!-- wp:group {"className":"scca-card scca-card--bordered","layout":{"type":"default"}} -->
+<div class="wp-block-group scca-card scca-card--bordered"><!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9"} /-->
 
 <!-- wp:group {"className":"scca-card__body","layout":{"type":"default"}} -->
-<div class="wp-block-group scca-card__body"><!-- wp:post-date {"format":"d/m/Y"} /-->
+<div class="wp-block-group scca-card__body"><!-- wp:post-title {"level":3,"isLink":true} /-->
 
-<!-- wp:post-title {"level":3,"isLink":true} /--></div>
+<!-- wp:post-excerpt {"excerptLength":30} /-->
+
+<!-- wp:post-date {"format":"d/m/Y","className":"scca-news__date"} /-->
+
+<!-- wp:read-more {"content":"Read more"} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 <!-- /wp:post-template -->

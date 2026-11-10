@@ -16,7 +16,7 @@
  * Slug: scca/post-grid
  * Categories: scca
  * Inserter: no
- * Description: Cards for the current listing (blog, archive or search), with pagination. Used by the index, archive and search templates.
+ * Description: News cards for the current listing (blog, archive or search), with pagination. Used by the index, archive and search templates.
  *
  * @package    scca
  * @copyright  © Skin Cancer College Australasia
@@ -25,16 +25,18 @@
 
 ?>
 <!-- wp:query {"queryId":2,"query":{"perPage":12,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"className":"scca-news"} -->
-<div class="wp-block-query scca-news"><!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+<div class="wp-block-query scca-news"><!-- wp:post-template {"className":"scca-news-grid","layout":{"type":"default"}} -->
 <!-- wp:group {"className":"scca-card scca-card--bordered","layout":{"type":"default"}} -->
-<div class="wp-block-group scca-card scca-card--bordered"><!-- wp:post-featured-image {"isLink":true} /-->
+<div class="wp-block-group scca-card scca-card--bordered"><!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9"} /-->
 
 <!-- wp:group {"className":"scca-card__body","layout":{"type":"default"}} -->
-<div class="wp-block-group scca-card__body"><!-- wp:post-date {"format":"d/m/Y"} /-->
+<div class="wp-block-group scca-card__body"><!-- wp:post-title {"level":3,"isLink":true} /-->
 
-<!-- wp:post-title {"level":3,"isLink":true} /-->
+<!-- wp:post-excerpt {"excerptLength":30} /-->
 
-<!-- wp:post-excerpt /--></div>
+<!-- wp:post-date {"format":"d/m/Y","className":"scca-news__date"} /-->
+
+<!-- wp:read-more {"content":"Read more"} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 <!-- /wp:post-template -->
