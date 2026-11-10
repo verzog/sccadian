@@ -136,6 +136,13 @@ jobs:
           wp option update page_on_front "$(wp post list --path="$WP_PATH" --post_type=page --name=home --field=ID)" \
             --path="$WP_PATH"
           wp rewrite structure '/%postname%/' --path="$WP_PATH"
+          # A post holding every theme pattern, for the editor and front-end checks.
+          content=""
+          for f in scca/patterns/*.php; do
+            content="$content<!-- wp:pattern {\"slug\":\"scca/$(basename "$f" .php)\"} /-->"
+          done
+          wp post create --path="$WP_PATH" --post_type=post --post_status=publish --post_title="Pattern showcase" \
+            --post_name=pattern-showcase --post_content="$content" --porcelain > showcase-id.txt
 
       - name: Patterns, templates and parts are registered
         run: wp eval-file scca/tests/check-registered.php --path="$WP_PATH"
@@ -160,6 +167,7 @@ jobs:
           check /category/uncategorized/ 200 scca-news
           check '/?s=CI'            200 scca-news
           check /no-such-page/      404 "Page not found"
+          check /pattern-showcase/  200 scca-banner
           exit $fail
 
       - name: Button contrast and valid blocks (front end and Site Editor)
@@ -168,6 +176,10 @@ jobs:
           npm install --no-save --no-audit --no-fund --prefix scca playwright@1.49.1
           npx --prefix scca playwright install --with-deps chromium
           node scca/tests/button-contrast.js "$SITE" admin admin
+
+      - name: Every theme pattern is valid in the post editor
+        if: ${{ !cancelled() }}
+        run: node scca/tests/editor-patterns.js "$SITE" admin admin "$(cat showcase-id.txt)"
 
       - name: Carousel and feature grid work in a browser
         if: ${{ !cancelled() }}

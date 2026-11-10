@@ -32,8 +32,10 @@ if ( 'scca' !== get_stylesheet() ) {
 	$scca_errors[] = 'Active theme is ' . get_stylesheet() . ', not scca.';
 }
 
-if ( ! WP_Block_Pattern_Categories_Registry::get_instance()->is_registered( 'scca' ) ) {
-	$scca_errors[] = 'Pattern category scca is not registered.';
+foreach ( [ 'scca', 'scca-story', 'scca-story-layouts' ] as $scca_category ) {
+	if ( ! WP_Block_Pattern_Categories_Registry::get_instance()->is_registered( $scca_category ) ) {
+		$scca_errors[] = "Pattern category $scca_category is not registered.";
+	}
 }
 
 if ( ! WP_Block_Type_Registry::get_instance()->is_registered( 'scca/carousel' ) ) {
@@ -48,8 +50,8 @@ foreach ( glob( "$scca_theme_dir/patterns/*.php" ) as $scca_file ) {
 		continue;
 	}
 	$scca_pattern = $scca_registry->get_registered( $scca_slug );
-	if ( ! in_array( 'scca', $scca_pattern['categories'] ?? [], true ) ) {
-		$scca_errors[] = "Pattern $scca_slug is not in the scca category.";
+	if ( ! array_filter( $scca_pattern['categories'] ?? [], fn( $c ) => str_starts_with( $c, 'scca' ) ) ) {
+		$scca_errors[] = "Pattern $scca_slug is not in an SCCA category.";
 	}
 	if ( '' === trim( do_blocks( $scca_pattern['content'] ) ) ) {
 		$scca_errors[] = "Pattern $scca_slug renders nothing.";

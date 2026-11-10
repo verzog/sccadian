@@ -61,6 +61,26 @@ All are under *SCCA sections* in the block inserter:
 | Testimonials | Three quote cards |
 | Post grid (hidden) | The same news cards with pagination, used by the blog, archive and search templates |
 
+## Story components and new-story layouts
+
+For news stories and other posts, the block inserter (the **+** button) has two
+more pattern sections, built from WordPress's own blocks:
+
+**SCCA story components:** Two columns, Three columns, Card group, Image with
+zoom (opens full size when clicked), Image and text, Video and text (paste a
+YouTube or Vimeo link), Jumbotron, Accordion, Table, Event banner and Key
+points. Insert one, then replace the `[...]` text and the placeholder images
+(add alt text to each image).
+
+**SCCA new story layouts:** News story, Event recap and Member or research
+feature: whole-post starting points. Depending on the WordPress version, *Posts
+> Add New Post* may offer them straight away; otherwise insert them from the
+inserter.
+
+These replace the Bootstrap components of the Moodle `tiny_bootstrap` plugin.
+Bootstrap itself is not loaded: the theme's own styles cover the same layouts,
+and grids collapse at Bootstrap's breakpoints (768px and 992px).
+
 ## Carousel block
 
 The hero is a **Carousel** block (also in the inserter under *Design*). Each
