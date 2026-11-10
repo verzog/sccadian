@@ -123,7 +123,8 @@ jobs:
           mkdir -p "$WP_PATH/wp-content/themes"
           git archive --format=tar --prefix=scca/ HEAD | tar -x -C "$WP_PATH/wp-content/themes"
           wp theme activate scca --path="$WP_PATH"
-          wp theme status scca --path="$WP_PATH"
+          # Not "wp theme status": it checks wordpress.org for updates, which CI does not contact.
+          [ "$(wp option get stylesheet --path="$WP_PATH")" = "scca" ] || { echo "::error::scca is not the active theme."; exit 1; }
 
       - name: Create sample content
         run: |
