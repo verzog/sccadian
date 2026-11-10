@@ -1,0 +1,8 @@
+/*
+ * Carousel block: editor-only styles. Slides are shown one under another so each can be edited.
+ * Copyright (c) Skin Cancer College Australasia. All rights reserved.
+ */
+
+.wp-block-scca-carousel .scca-carousel__track > .wp-block-cover + .wp-block-cover {
+	margin-top: 4px;
+}

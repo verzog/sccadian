@@ -12,7 +12,8 @@
 
 /**
  * CI check: every visible button on the homepage, on the front end and in the
- * Site Editor, has text that meets WCAG AA contrast (4.5:1) against its background.
+ * Site Editor, has text that meets WCAG AA contrast (4.5:1) against its background,
+ * and the Site Editor shows no invalid-block warnings for the theme's markup.
  *
  * Usage: node tests/button-contrast.js <site-url> <admin-user> <admin-password>
  *
@@ -137,6 +138,13 @@ function report(where, buttons) {
     const frame = await frameEl.contentFrame();
     await frame.waitForSelector('.wp-block-button__link', {timeout: 60000});
     failures += report('Site Editor', await frame.evaluate(collectButtons));
+
+    // Markup in the theme's patterns must match what each block saves, or the editor shows
+    // "This block contains unexpected or invalid content".
+    const invalid = await frame.$$eval('.block-editor-warning', (w) => w.map((el) => el.textContent.trim().slice(0, 80)));
+    console.log(`\nSite Editor: ${invalid.length} invalid-block warnings`);
+    invalid.forEach((w) => console.log(`::error::Site Editor block warning: ${w}`));
+    failures += invalid.length;
 
     await page.screenshot({path: 'site-editor.png'});
     await browser.close();

@@ -31,8 +31,8 @@ Copy the `scca` folder to `wp-content/themes/scca`, then activate it under
    Events, Contact).
 3. **Homepage:** *Settings > Reading*, set the homepage to a static page. The
    `front-page.html` template then shows the SCCA sections in order.
-4. **Images:** add a background image to the hero and each feature card
-   (select the Cover block, then *Add media*).
+4. **Images:** add a background image to each carousel slide and each
+   feature card (select the Cover block, then *Add media*).
 5. **Placeholders:** replace every `[...]` text: testimonials, the SkinPro CPD
    description, footer contact details, and both acknowledgements. Use SCCA's
    current wording.
@@ -51,15 +51,42 @@ All are under *SCCA sections* in the block inserter:
 
 | Pattern | What it is |
 |---|---|
-| Hero banner | Purple cover with an orange heading and button |
+| Hero carousel | Rotating slides, each with an image, orange heading, text and button |
 | Stay connected | Lavender strip with social links |
-| Feature cards | Four image cards |
+| Feature cards | Four image cards with a heading, text and button: 4 across on large screens, 2 on tablets, 1 on phones |
 | Latest news | The three newest posts |
 | SkinPro CPD promotion | Magenta band with a white panel |
 | Upcoming events | Heading and a link to the iMIS events calendar |
 | Patient resources | Orange band linking to SCAN your Skin |
 | Testimonials | Three quote cards |
 | Post grid (hidden) | News cards with pagination, used by the blog, archive and search templates |
+
+## Carousel block
+
+The hero is a **Carousel** block (also in the inserter under *Design*). Each
+slide is a Cover block: select one to change its image, overlay colour and
+opacity, or text. To add a slide, select the last slide and press *Duplicate*
+(or add a Cover block inside the carousel).
+
+Select the carousel itself (use the *List View* or the breadcrumb at the bottom
+of the editor) to change its settings in the sidebar:
+
+| Setting | Default |
+|---|---|
+| Play automatically | On |
+| Seconds per slide | 6 |
+| Transition (slide or fade) and its length | Slide, 600 ms |
+| Height on computers / on phones | 480 px / 420 px |
+| Show arrows, show dots | On, on |
+| Name for screen readers | "Featured" |
+
+Leave each slide's own *Minimum height* empty, or it overrides the carousel
+height. In the editor the slides are shown one under another so each can be
+edited; on the site they rotate.
+
+Accessibility: autoplay pauses while the mouse is over the carousel or a
+keyboard user is inside it, there is always a pause button, and it never plays
+automatically for visitors whose device asks for reduced motion.
 
 The **Upcoming events** pattern links out for now. The planned iMIS membership
 plugin can later add a live events list read from an iMIS IQA.

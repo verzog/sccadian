@@ -62,3 +62,13 @@ function scca_register_pattern_category(): void {
 	);
 }
 add_action( 'init', 'scca_register_pattern_category' );
+
+/**
+ * Register the theme's own blocks (the carousel).
+ *
+ * @return void
+ */
+function scca_register_blocks(): void {
+	register_block_type( __DIR__ . '/blocks/carousel' );
+}
+add_action( 'init', 'scca_register_blocks' );
