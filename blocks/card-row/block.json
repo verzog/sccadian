@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.6/block.json",
+	"apiVersion": 3,
+	"name": "scca/card-row",
+	"version": "0.4.0",
+	"title": "Card row",
+	"category": "design",
+	"icon": "columns",
+	"description": "A row of cards that scrolls sideways, with previous and next arrows. Swipe on phones. Each card has an image, heading, text and button.",
+	"keywords": [ "cards", "scroll", "slider", "row" ],
+	"textdomain": "scca",
+	"attributes": {
+		"cardSize": { "type": "string", "enum": [ "small", "medium", "large" ], "default": "medium" },
+		"showArrows": { "type": "boolean", "default": true },
+		"shadow": { "type": "boolean", "default": true },
+		"rounded": { "type": "boolean", "default": true },
+		"label": { "type": "string", "default": "" }
+	},
+	"supports": {
+		"align": [ "wide", "full" ],
+		"anchor": true,
+		"html": false
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style.css",
+	"viewScript": "file:./view.js"
+}
