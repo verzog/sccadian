@@ -158,12 +158,24 @@ jobs:
           check /no-such-page/      404 "Page not found"
           exit $fail
 
-      - name: Button text contrast (front end and Site Editor)
+      - name: Button contrast and valid blocks (front end and Site Editor)
         if: ${{ !cancelled() }}
         run: |
           npm install --no-save --no-audit --no-fund --prefix scca playwright@1.49.1
           npx --prefix scca playwright install --with-deps chromium
           node scca/tests/button-contrast.js "$SITE" admin admin
+
+      - name: Carousel and feature grid work in a browser
+        if: ${{ !cancelled() }}
+        run: node scca/tests/carousel.js "$SITE"
+
+      - name: Upload homepage screenshots
+        if: ${{ !cancelled() && matrix.wp == 'latest' && matrix.php == '8.3' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: homepage-screenshots
+          path: homepage-*.png
+          if-no-files-found: ignore
 
       - name: Upload Site Editor screenshot
         if: ${{ failure() }}

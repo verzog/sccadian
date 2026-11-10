@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.6/block.json",
+	"apiVersion": 3,
+	"name": "scca/carousel",
+	"version": "0.2.0",
+	"title": "Carousel",
+	"category": "design",
+	"icon": "slides",
+	"description": "Full-width slides that rotate automatically. Each slide is a Cover block: add an image, heading, text and button.",
+	"keywords": [ "slider", "slideshow", "hero", "banner" ],
+	"textdomain": "scca",
+	"attributes": {
+		"autoplay": { "type": "boolean", "default": true },
+		"speed": { "type": "number", "default": 6 },
+		"height": { "type": "number", "default": 480 },
+		"mobileHeight": { "type": "number", "default": 420 },
+		"showArrows": { "type": "boolean", "default": true },
+		"showDots": { "type": "boolean", "default": true },
+		"transition": { "type": "string", "enum": [ "slide", "fade" ], "default": "slide" },
+		"transitionDuration": { "type": "number", "default": 600 },
+		"label": { "type": "string", "default": "" }
+	},
+	"supports": {
+		"align": [ "wide", "full" ],
+		"anchor": true,
+		"html": false
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./editor.css",
+	"style": "file:./style.css",
+	"viewScript": "file:./view.js"
+}

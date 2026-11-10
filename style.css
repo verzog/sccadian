@@ -2,7 +2,7 @@
 Theme Name: SCCA
 Description: Block theme for the Skin Cancer College Australasia website, with reusable section patterns.
 Author: Skin Cancer College Australasia
-Version: 0.1.3
+Version: 0.2.0
 Requires at least: 6.6
 Tested up to: 6.9
 Requires PHP: 8.1
@@ -63,23 +63,47 @@ Text Domain: scca
 	color: var(--wp--preset--color--white);
 }
 
-/* Hero: heading uses the brand orange; large text passes contrast on purple. */
-.scca-hero h1 {
+/* Hero: headings use the brand orange; large text passes contrast on purple. */
+.scca-hero h1,
+.scca-hero h2 {
 	color: var(--wp--preset--color--orange);
 	text-transform: uppercase;
 }
 
-/* Feature cards: image cards with the title sitting at the bottom. */
+/*
+ * Feature cards: a 4-column grid that collapses like Bootstrap's
+ * col-12 col-md-6 col-lg-3 (1 column on phones, 2 from 768px, 4 from 992px).
+ */
+.scca-feature-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--wp--preset--spacing--40);
+}
+
+@media (min-width: 768px) {
+	.scca-feature-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (min-width: 992px) {
+	.scca-feature-grid {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+}
+
+.scca-feature-grid > .wp-block-cover {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
 .scca-feature-card {
 	border-radius: 7px;
 	overflow: hidden;
 }
 
-.scca-feature-card .wp-block-cover__inner-container {
-	align-self: flex-end;
-}
-
 .scca-feature-card h3,
+.scca-feature-card p,
 .scca-feature-card a {
 	color: var(--wp--preset--color--white);
 }

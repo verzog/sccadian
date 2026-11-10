@@ -1,0 +1,158 @@
+/*
+ * Carousel block: front-end and editor styles.
+ * Copyright (c) Skin Cancer College Australasia. All rights reserved.
+ */
+
+.wp-block-scca-carousel {
+	--scca-carousel-current-height: var(--scca-carousel-height, 480px);
+	position: relative;
+	overflow: hidden;
+}
+
+@media (max-width: 781px) {
+	.wp-block-scca-carousel {
+		--scca-carousel-current-height: var(--scca-carousel-height-mobile, 420px);
+	}
+}
+
+.wp-block-scca-carousel .scca-carousel__track > .wp-block-cover {
+	min-height: var(--scca-carousel-current-height);
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+/* Slide text stays white, even when WordPress marks a slide's image as light. */
+.wp-block-scca-carousel .scca-carousel__track .wp-block-cover .wp-block-cover__inner-container {
+	color: var(--wp--preset--color--white, #fff);
+}
+
+/* Once view.js has run: one slide at a time. */
+.wp-block-scca-carousel.is-initialised .scca-carousel__track {
+	height: var(--scca-carousel-current-height);
+}
+
+.wp-block-scca-carousel.is-initialised .scca-carousel__track > .wp-block-cover {
+	height: var(--scca-carousel-current-height);
+}
+
+/* Slide transition: the track moves sideways. */
+.wp-block-scca-carousel.is-initialised.is-transition-slide .scca-carousel__track {
+	display: flex;
+	gap: 0;
+	transform: translateX(calc(var(--scca-carousel-index, 0) * -100%));
+	transition: transform var(--scca-carousel-duration, 600ms) ease-in-out;
+}
+
+.wp-block-scca-carousel.is-initialised.is-transition-slide .scca-carousel__track > .wp-block-cover {
+	flex: 0 0 100%;
+}
+
+/* Fade transition: slides stack and cross-fade. */
+.wp-block-scca-carousel.is-initialised.is-transition-fade .scca-carousel__track {
+	position: relative;
+}
+
+.wp-block-scca-carousel.is-initialised.is-transition-fade .scca-carousel__track > .wp-block-cover {
+	position: absolute;
+	inset: 0;
+	opacity: 0;
+	transition: opacity var(--scca-carousel-duration, 600ms) ease-in-out;
+}
+
+.wp-block-scca-carousel.is-initialised.is-transition-fade .scca-carousel__track > .wp-block-cover.is-active {
+	opacity: 1;
+}
+
+/* Controls: arrows at the sides, dots and pause button along the bottom. */
+.wp-block-scca-carousel .scca-carousel__arrow,
+.wp-block-scca-carousel .scca-carousel__pause,
+.wp-block-scca-carousel .scca-carousel__dot {
+	border: 0;
+	cursor: pointer;
+	font: inherit;
+}
+
+.wp-block-scca-carousel .scca-carousel__arrow {
+	position: absolute;
+	bottom: 36px;
+	z-index: 2;
+	width: 44px;
+	height: 44px;
+	border-radius: 4px;
+	background: var(--wp--preset--color--white, #fff);
+	color: var(--wp--preset--color--purple, #442980);
+	font-size: 22px;
+	line-height: 1;
+}
+
+.wp-block-scca-carousel .scca-carousel__arrow--prev {
+	left: 16px;
+}
+
+.wp-block-scca-carousel .scca-carousel__arrow--next {
+	right: 16px;
+}
+
+.wp-block-scca-carousel .scca-carousel__controls {
+	position: absolute;
+	bottom: 36px;
+	left: 50%;
+	z-index: 2;
+	display: flex;
+	gap: 12px;
+	align-items: center;
+	transform: translateX(-50%);
+}
+
+.wp-block-scca-carousel .scca-carousel__dots {
+	display: flex;
+	gap: 8px;
+}
+
+.wp-block-scca-carousel .scca-carousel__dot {
+	width: 24px;
+	height: 24px;
+	padding: 0;
+	background: transparent;
+}
+
+.wp-block-scca-carousel .scca-carousel__dot span {
+	display: block;
+	width: 12px;
+	height: 12px;
+	margin: auto;
+	border: 2px solid var(--wp--preset--color--white, #fff);
+	border-radius: 50%;
+}
+
+.wp-block-scca-carousel .scca-carousel__dot[aria-current="true"] span {
+	background: var(--wp--preset--color--white, #fff);
+}
+
+.wp-block-scca-carousel .scca-carousel__pause {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.45);
+	color: var(--wp--preset--color--white, #fff);
+	font-size: 12px;
+	line-height: 1;
+}
+
+.wp-block-scca-carousel button:focus-visible {
+	outline: 2px solid var(--wp--preset--color--white, #fff);
+	outline-offset: 2px;
+	box-shadow: 0 0 0 4px var(--wp--preset--color--purple, #442980);
+}
+
+/* Leave room above the controls for each slide's button. */
+.wp-block-scca-carousel.is-initialised .wp-block-cover__inner-container {
+	padding-bottom: 64px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.wp-block-scca-carousel.is-initialised .scca-carousel__track,
+	.wp-block-scca-carousel.is-initialised .scca-carousel__track > .wp-block-cover {
+		transition: none;
+	}
+}

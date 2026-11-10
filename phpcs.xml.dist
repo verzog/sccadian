@@ -22,6 +22,11 @@
     </rule>
     <rule ref="PHPCompatibilityWP"/>
 
+    <!-- WordPress requires block script asset files to be named <script>.asset.php. -->
+    <rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
+        <exclude-pattern>*.asset.php</exclude-pattern>
+    </rule>
+
     <!-- Every translatable string must use the theme's text domain. -->
     <rule ref="WordPress.WP.I18n">
         <properties>

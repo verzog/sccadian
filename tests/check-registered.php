@@ -36,6 +36,10 @@ if ( ! WP_Block_Pattern_Categories_Registry::get_instance()->is_registered( 'scc
 	$scca_errors[] = 'Pattern category scca is not registered.';
 }
 
+if ( ! WP_Block_Type_Registry::get_instance()->is_registered( 'scca/carousel' ) ) {
+	$scca_errors[] = 'Block scca/carousel is not registered.';
+}
+
 $scca_registry = WP_Block_Patterns_Registry::get_instance();
 foreach ( glob( "$scca_theme_dir/patterns/*.php" ) as $scca_file ) {
 	$scca_slug = 'scca/' . basename( $scca_file, '.php' );
