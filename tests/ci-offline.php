@@ -12,9 +12,13 @@
 // is provided "as is", without warranty of any kind, express or implied.
 
 /**
- * CI-only must-use plugin: answer requests to wordpress.org (update checks, dashboard
- * feeds) at once with an empty reply, so the single-threaded test server never waits on
- * them and failed checks never write warnings to debug.log. Never shipped in the theme.
+ * CI-only must-use plugin: no update checks, and no waiting on wordpress.org.
+ *
+ * The single-threaded test server blocks while WordPress calls wordpress.org (update
+ * checks, dashboard feeds, the pattern directory), which made logins time out. Update
+ * checks are switched off (CI never needs them, and a failed check writes a warning to
+ * debug.log), and any other wordpress.org request is declined at once. Never shipped
+ * in the theme.
  *
  * @package    scca
  * @copyright  © Skin Cancer College Australasia
@@ -23,24 +27,25 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Update checks: hooked in wp-includes/update.php, which loads before must-use plugins.
+remove_action( 'admin_init', '_maybe_update_core' );
+remove_action( 'admin_init', '_maybe_update_plugins' );
+remove_action( 'admin_init', '_maybe_update_themes' );
+remove_action( 'wp_version_check', 'wp_version_check' );
+remove_action( 'wp_update_plugins', 'wp_update_plugins' );
+remove_action( 'wp_update_themes', 'wp_update_themes' );
+remove_action( 'wp_maybe_auto_update', 'wp_maybe_auto_update' );
+remove_action( 'init', 'wp_schedule_update_checks' );
+
 add_filter(
 	'pre_http_request',
 	static function ( $pre, $args, $url ) {
 		unset( $args );
 		$host = (string) wp_parse_url( $url, PHP_URL_HOST );
-		if ( 'wordpress.org' !== $host && ! str_ends_with( $host, '.wordpress.org' ) ) {
-			return $pre;
+		if ( 'wordpress.org' === $host || str_ends_with( $host, '.wordpress.org' ) ) {
+			return new WP_Error( 'scca_ci_offline', 'wordpress.org is not contacted in CI.' );
 		}
-		return [
-			'headers'  => [],
-			'body'     => '{}',
-			'response' => [
-				'code'    => 200,
-				'message' => 'OK',
-			],
-			'cookies'  => [],
-			'filename' => null,
-		];
+		return $pre;
 	},
 	10,
 	3
