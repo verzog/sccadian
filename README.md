@@ -39,6 +39,8 @@ Copy the `scca` folder to `wp-content/themes/scca`, then activate it under
 6. **Links:** the menu and buttons point to placeholder paths such as
    `/locate-a-doctor/` and `/cart/`. Point the iMIS-hosted ones (shop, cart,
    Locate a Doctor, event registration, profile) at the iMIS site for now.
+   The **Member login** link in the top bar and **Portal login** in the
+   footer both use `/portal-login/`; point them at the iMIS login page.
 7. **Social links:** the *Stay connected* strip and the footer link to the
    LinkedIn, Facebook and Instagram home pages. Replace them with SCCA's
    own profile URLs.
