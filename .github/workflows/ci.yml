@@ -108,11 +108,12 @@ jobs:
           define( 'WP_DEBUG', true );
           define( 'WP_DEBUG_LOG', true );
           define( 'WP_DEBUG_DISPLAY', false );
-          // No update checks or dashboard feeds: the single-threaded test server would wait on them.
-          define( 'WP_HTTP_BLOCK_EXTERNAL', true );
           PHP
           wp core install --path="$WP_PATH" --url="$SITE" --title="SCCA CI" \
             --admin_user=admin --admin_password=admin --admin_email=ci@example.com --skip-email
+          # Answer wordpress.org requests instantly in CI (see tests/ci-offline.php).
+          mkdir -p "$WP_PATH/wp-content/mu-plugins"
+          cp scca/tests/ci-offline.php "$WP_PATH/wp-content/mu-plugins/"
           wp option update timezone_string "$TZ" --path="$WP_PATH"
           wp option update date_format "d/m/Y" --path="$WP_PATH"
 
