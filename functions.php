@@ -51,7 +51,7 @@ function scca_enqueue_styles(): void {
 add_action( 'wp_enqueue_scripts', 'scca_enqueue_styles' );
 
 /**
- * Register the pattern category the theme's section patterns use.
+ * Register the pattern categories the theme's patterns use.
  *
  * @return void
  */
@@ -59,6 +59,14 @@ function scca_register_pattern_category(): void {
 	register_block_pattern_category(
 		'scca',
 		[ 'label' => __( 'SCCA sections', 'scca' ) ]
+	);
+	register_block_pattern_category(
+		'scca-story',
+		[ 'label' => __( 'SCCA story components', 'scca' ) ]
+	);
+	register_block_pattern_category(
+		'scca-story-layouts',
+		[ 'label' => __( 'SCCA new story layouts', 'scca' ) ]
 	);
 }
 add_action( 'init', 'scca_register_pattern_category' );

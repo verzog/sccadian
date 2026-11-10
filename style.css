@@ -2,7 +2,7 @@
 Theme Name: SCCA
 Description: Block theme for the Skin Cancer College Australasia website, with reusable section patterns.
 Author: Skin Cancer College Australasia
-Version: 0.2.2
+Version: 0.3.0
 Requires at least: 6.6
 Tested up to: 6.9
 Requires PHP: 8.1
@@ -148,10 +148,11 @@ Text Domain: scca
 }
 
 /*
- * News cards: image, title, excerpt, date and a Read more button, in a grid that
- * collapses like Bootstrap's col-12 col-md-6 col-lg-4 (1, 2 from 768px, 3 from 992px).
+ * News cards (and story card groups): a grid that collapses like Bootstrap's
+ * col-12 col-md-6 col-lg-4 (1 column, 2 from 768px, 3 from 992px).
  */
-.scca-news-grid {
+.scca-news-grid,
+.scca-card-grid {
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: var(--wp--preset--spacing--40);
@@ -161,19 +162,59 @@ Text Domain: scca
 }
 
 @media (min-width: 768px) {
-	.scca-news-grid {
+	.scca-news-grid,
+	.scca-card-grid {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 }
 
 @media (min-width: 992px) {
-	.scca-news-grid {
+	.scca-news-grid,
+	.scca-card-grid {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
 }
 
-.scca-news-grid > li {
+.scca-news-grid > li,
+.scca-card-grid > * {
 	margin: 0;
+}
+
+/* Story components. */
+.scca-card-grid .wp-block-image {
+	margin: 0;
+}
+
+.scca-card-grid .wp-block-image img {
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+	width: 100%;
+}
+
+.scca-callout {
+	padding: var(--wp--preset--spacing--40);
+	border-left: 6px solid var(--wp--preset--color--purple);
+	border-radius: 7px;
+}
+
+.scca-callout h3 {
+	margin-top: 0;
+}
+
+.scca-banner {
+	padding: var(--wp--preset--spacing--50) var(--wp--preset--spacing--40);
+	border-bottom: 8px solid var(--wp--preset--color--orange);
+	border-radius: 7px;
+}
+
+.scca-banner h2,
+.scca-banner a:not(.wp-element-button) {
+	color: var(--wp--preset--color--white);
+}
+
+/* Wide tables scroll sideways on phones instead of squashing. */
+.wp-block-table {
+	overflow-x: auto;
 }
 
 .scca-news .scca-card {
