@@ -56,6 +56,12 @@ function check(ok, message) {
 	check(trackInfo.role === 'region' && !!trackInfo.label && trackInfo.tab === 0,
 		`Row is a labelled region reachable by keyboard (${JSON.stringify(trackInfo)})`);
 
+	// Give one card much more text, so button alignment is tested with uneven content.
+	await track.evaluate((t) => {
+		const p = t.children[1].querySelector('p');
+		p.textContent = 'A much longer card description that wraps over several lines, to check that every card '
+			+ 'stretches to the tallest one and the buttons still line up along the bottom of the row.';
+	});
 	const cards = await track.evaluate((t) => [...t.children].map((c) => {
 		const img = c.querySelector('img');
 		const btn = c.querySelector('.wp-block-button__link');
@@ -70,7 +76,8 @@ function check(ok, message) {
 		`Medium cards are all 300px wide (${cards.map((c) => c.width).join(', ')})`);
 	check(new Set(cards.map((c) => c.image)).size === 1 && cards[0].image === 170,
 		`Images are cropped to one height, 170px (${cards.map((c) => c.image).join(', ')})`);
-	check(new Set(cards.map((c) => c.buttonBottom)).size === 1, 'Buttons line up at the foot of every card');
+	check(new Set(cards.map((c) => c.buttonBottom)).size === 1,
+		`Buttons line up even when one card has more text (${cards.map((c) => c.buttonBottom).join(', ')})`);
 
 	const prev = row.locator('.scca-card-row__arrow--prev');
 	const next = row.locator('.scca-card-row__arrow--next');

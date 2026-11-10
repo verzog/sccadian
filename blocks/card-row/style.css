@@ -34,6 +34,8 @@
 	display: flex;
 	flex: 0 0 min(var(--scca-card-row-width), 85%);
 	flex-direction: column;
+	/* Cards carry .scca-card's height: 100%, which stops flex stretching; auto lets every card match the tallest. */
+	height: auto;
 	margin: 0;
 	overflow: hidden;
 	scroll-snap-align: start;
