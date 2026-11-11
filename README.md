@@ -84,6 +84,11 @@ medium or large: every card the same width, images cropped to the same
 height), drop shadow, rounded corners and arrows. Each card is a Group block,
 so change its colours in the sidebar; duplicate a card to add another.
 
+**Hiding the featured image on a story:** the featured image still shows on
+the news cards, but on the story's own page you can leave it out. Open the
+story, then in the sidebar under *Post* select *Template* and choose **Story
+without featured image**. Choose the default template (*Single Posts*) to show it again.
+
 These replace the Bootstrap components of the Moodle `tiny_bootstrap` plugin.
 Bootstrap itself is not loaded: the theme's own styles cover the same layouts,
 and grids collapse at Bootstrap's breakpoints (768px and 992px).
