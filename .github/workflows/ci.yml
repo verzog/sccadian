@@ -146,6 +146,9 @@ jobs:
           # "Story without featured image".
           printf 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==' \
             | base64 -d > ci-image.png
+          # WordPress was downloaded without wp-content, so make the uploads folder for it.
+          mkdir -p "$WP_PATH/wp-content/uploads"
+          wp option update uploads_use_yearmonth_folders 0 --path="$WP_PATH"
           for slug in with-image without-image; do
             wp post create --path="$WP_PATH" --post_type=post --post_status=publish --post_title="CI $slug" \
               --post_name="ci-$slug" --porcelain > "$slug-id.txt"
