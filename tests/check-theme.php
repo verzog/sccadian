@@ -127,8 +127,9 @@ foreach ( $scca_json['settings']['typography']['fontFamilies'] ?? [] as $scca_fa
 // Patterns: headers present, slugs unique, markup valid.
 $scca_patterns = [];
 $scca_blocks   = [];
-foreach ( glob( "$scca_root/patterns/*.php" ) as $scca_path ) {
-	$scca_file   = 'patterns/' . basename( $scca_path );
+// Column layouts (layouts/, administrators only) are patterns too.
+foreach ( array_merge( glob( "$scca_root/patterns/*.php" ), glob( "$scca_root/layouts/*.php" ) ) as $scca_path ) {
+	$scca_file   = basename( dirname( $scca_path ) ) . '/' . basename( $scca_path );
 	$scca_source = (string) file_get_contents( $scca_path );
 	foreach ( [ 'Title', 'Slug', 'Categories' ] as $scca_header ) {
 		if ( ! preg_match( '/^\s*\*\s*' . $scca_header . ':\s*(\S.*)$/m', $scca_source, $scca_m ) ) {

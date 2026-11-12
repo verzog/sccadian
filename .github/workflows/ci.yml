@@ -166,6 +166,10 @@ jobs:
           for f in scca/patterns/*.php; do
             content="$content<!-- wp:pattern {\"slug\":\"scca/$(basename "$f" .php)\"} /-->"
           done
+          # The column layouts (administrators only, so not by slug): their markup as it is.
+          for f in scca/layouts/*.php; do
+            content="$content$(sed '1,/^?>$/d' "$f")"
+          done
           wp post create --path="$WP_PATH" --post_type=post --post_status=publish --post_title="Pattern showcase" \
             --post_name=pattern-showcase --post_content="$content" --porcelain > showcase-id.txt
 
