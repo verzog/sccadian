@@ -1,13 +1,43 @@
 <!-- wp:template-part {"slug":"header","area":"header","tagName":"header"} /-->
 
-<!-- wp:group {"tagName":"main","className":"scca-section","layout":{"type":"constrained"}} -->
-<main class="wp-block-group scca-section"><!-- wp:post-title {"level":1} /-->
+<!-- wp:group {"tagName":"main","layout":{"type":"default"}} -->
+<main class="wp-block-group"><!-- wp:group {"align":"full","className":"scca-event-hero","backgroundColor":"purple","textColor":"white","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull scca-event-hero has-white-color has-purple-background-color has-text-color has-background"><!-- wp:columns {"verticalAlignment":"center"} -->
+<div class="wp-block-columns are-vertically-aligned-center"><!-- wp:column {"verticalAlignment":"center","width":"58.33%"} -->
+<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:58.33%"><!-- wp:post-terms {"term":"wormiss_event_type","className":"scca-event__type"} /-->
 
-<!-- wp:post-terms {"term":"wormiss_event_type","className":"scca-event__type"} /-->
+<!-- wp:post-title {"level":1,"className":"scca-event-hero__title"} /--></div>
+<!-- /wp:column -->
 
-<!-- wp:post-featured-image /-->
+<!-- wp:column {"verticalAlignment":"center","width":"41.67%"} -->
+<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:41.67%"><!-- wp:post-featured-image {"className":"scca-event-hero__image"} /--></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
+<!-- /wp:group -->
 
-<!-- wp:post-content {"layout":{"type":"constrained"}} /--></main>
+<!-- wp:group {"className":"scca-section","layout":{"type":"constrained"}} -->
+<div class="wp-block-group scca-section"><!-- wp:columns {"className":"scca-event-body"} -->
+<div class="wp-block-columns scca-event-body"><!-- wp:column {"width":"66.67%"} -->
+<div class="wp-block-column" style="flex-basis:66.67%"><!-- wp:post-content {"layout":{"type":"constrained"}} /--></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"width":"33.33%","className":"scca-event-aside"} -->
+<div class="wp-block-column scca-event-aside" style="flex-basis:33.33%"><!-- wp:group {"className":"scca-event-info","backgroundColor":"purple","textColor":"white","layout":{"type":"default"}} -->
+<div class="wp-block-group scca-event-info has-white-color has-purple-background-color has-text-color has-background"><!-- wp:heading {"className":"scca-event-info__title"} -->
+<h2 class="wp-block-heading scca-event-info__title">Event information</h2>
+<!-- /wp:heading -->
+
+<!-- wp:wormiss/event-facts /--></div>
+<!-- /wp:group -->
+
+<!-- wp:wormiss/event-imis /--></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","className":"scca-section scca-event-cpd","backgroundColor":"grey-light","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull scca-section scca-event-cpd has-grey-light-background-color has-background"><!-- wp:wormiss/event-cpd /--></div>
+<!-- /wp:group --></main>
 <!-- /wp:group -->
 
 <!-- wp:template-part {"slug":"footer","area":"footer","tagName":"div"} /-->
