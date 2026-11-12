@@ -101,6 +101,22 @@ These replace the Bootstrap components of the Moodle `tiny_bootstrap` plugin.
 Bootstrap itself is not loaded: the theme's own styles cover the same layouts,
 and grids collapse at Bootstrap's breakpoints (768px and 992px).
 
+## Column layouts (administrators only)
+
+To arrange a page's content side by side, administrators insert a layout from
+**Patterns → SCCA layouts (12-column grid)**. Widths are in twelfths of the page,
+as in a Bootstrap grid: 6 + 6, 4 + 8, 8 + 4, 3 + 9, 9 + 3, 4 + 4 + 4,
+3 + 3 + 3 + 3 and 3 + 6 + 3. Columns stack one under another on phones.
+
+Any column's width can be set exactly: select the column, then **Grid width →
+Columns of 12** in the block settings (widths in a row should add up to 12).
+
+The layouts, the Grid width setting and the Columns block are offered to
+administrators only. A layout's columns are inserted locked, and only
+administrators can lock or unlock blocks, so other users can edit what is inside
+each column but cannot move, remove or add columns. To rearrange a layout, an
+administrator unlocks it (the padlock in its toolbar).
+
 ## Carousel block
 
 The hero is a **Carousel** block (also in the inserter under *Design*). Each

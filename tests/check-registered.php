@@ -60,6 +60,35 @@ foreach ( glob( "$scca_theme_dir/patterns/*.php" ) as $scca_file ) {
 	}
 }
 
+// Column layouts are registered for administrators only.
+if ( ! WP_Block_Pattern_Categories_Registry::get_instance()->is_registered( 'scca-layouts' ) ) {
+	$scca_errors[] = 'Pattern category scca-layouts is not registered.';
+}
+if ( $scca_registry->is_registered( 'scca/layout-6-6' ) ) {
+	$scca_errors[] = 'Column layouts are registered for someone who is not an administrator.';
+}
+$scca_admin = get_users(
+	[
+		'role'   => 'administrator',
+		'number' => 1,
+		'fields' => 'ID',
+	]
+);
+wp_set_current_user( (int) ( $scca_admin[0] ?? 0 ) );
+scca_register_layout_patterns();
+foreach ( glob( "$scca_theme_dir/layouts/*.php" ) as $scca_file ) {
+	$scca_slug = 'scca/layout-' . basename( $scca_file, '.php' );
+	if ( ! $scca_registry->is_registered( $scca_slug ) ) {
+		$scca_errors[] = "Layout $scca_slug is not registered for administrators.";
+	} elseif ( '' === trim( do_blocks( $scca_registry->get_registered( $scca_slug )['content'] ) ) ) {
+		$scca_errors[] = "Layout $scca_slug renders nothing.";
+	}
+}
+$scca_columns = WP_Block_Type_Registry::get_instance()->get_registered( 'core/columns' );
+if ( $scca_columns && false !== ( $scca_columns->supports['inserter'] ?? true ) ) {
+	$scca_errors[] = 'The Columns block is in the inserter for someone who is not an administrator.';
+}
+
 $scca_templates = wp_list_pluck( get_block_templates( [], 'wp_template' ), 'slug' );
 foreach ( glob( "$scca_theme_dir/templates/*.html" ) as $scca_file ) {
 	$scca_slug = basename( $scca_file, '.html' );
