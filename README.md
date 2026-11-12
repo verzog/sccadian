@@ -60,6 +60,14 @@ All are under *SCCA sections* in the block inserter:
 | Patient resources | Orange band linking to SCAN your Skin |
 | Testimonials | Three quote cards |
 | Post grid (hidden) | The same news cards with pagination, used by the blog, archive and search templates |
+| Event grid (hidden) | Event cards (image, title, event type, summary, Event details) with pagination, used by the events listing and event type pages |
+
+## Event pages (Wormiss)
+
+With the Wormiss plugin active, its Events use their own templates:
+
+* **Single event** (`single-wormiss_event.html`): title, event type, featured image, then the page content. Wormiss puts the event details (when, where, event code, registration closes, places left) and the Register button at the top of the content. No publish date or previous/next links, as neither is the event's.
+* **Events listing** (`archive-wormiss_event.html`, at `/events/`) and **event type pages** (`taxonomy-wormiss_event_type.html`, at `/event-type/<type>/`): event cards from the *Event grid* pattern.
 
 ## Story components and new-story layouts
 
