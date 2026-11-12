@@ -112,8 +112,10 @@ Any column's width can be set exactly: select the column, then **Grid width →
 Columns of 12** in the block settings (widths in a row should add up to 12).
 
 The layouts, the Grid width setting and the Columns block are offered to
-administrators only. Other users can still edit the text inside columns already
-on a page, but cannot add or rearrange columns.
+administrators only. A layout's columns are inserted locked, and only
+administrators can lock or unlock blocks, so other users can edit what is inside
+each column but cannot move, remove or add columns. To rearrange a layout, an
+administrator unlocks it (the padlock in its toolbar).
 
 ## Carousel block
 

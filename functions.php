@@ -150,6 +150,22 @@ function scca_columns_for_admins( $metadata ) {
 add_filter( 'block_type_metadata', 'scca_columns_for_admins' );
 
 /**
+ * Only administrators can lock and unlock blocks, so the column layouts (inserted locked: their
+ * columns cannot be moved or removed, and no column can be added, though what is in each column
+ * stays editable) keep their shape for everyone else.
+ *
+ * @param array $settings Block editor settings.
+ * @return array
+ */
+function scca_lock_blocks_for_admins( $settings ) {
+	if ( is_array( $settings ) ) {
+		$settings['canLockBlocks'] = scca_can_lay_out();
+	}
+	return $settings;
+}
+add_filter( 'block_editor_settings_all', 'scca_lock_blocks_for_admins' );
+
+/**
  * The "Grid width" setting on columns in the editor, for administrators.
  *
  * @return void

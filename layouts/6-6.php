@@ -23,14 +23,14 @@
  */
 
 ?>
-<!-- wp:columns {"className":"scca-layout"} -->
-<div class="wp-block-columns scca-layout"><!-- wp:column {"width":"50%"} -->
+<!-- wp:columns {"lock":{"move":true,"remove":true},"templateLock":"all","className":"scca-layout"} -->
+<div class="wp-block-columns scca-layout"><!-- wp:column {"width":"50%","lock":{"move":true,"remove":true},"templateLock":false} -->
 <div class="wp-block-column" style="flex-basis:50%"><!-- wp:paragraph -->
 <p>[Content, 6 of 12 columns]</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
-<!-- wp:column {"width":"50%"} -->
+<!-- wp:column {"width":"50%","lock":{"move":true,"remove":true},"templateLock":false} -->
 <div class="wp-block-column" style="flex-basis:50%"><!-- wp:paragraph -->
 <p>[Content, 6 of 12 columns]</p>
 <!-- /wp:paragraph --></div>
