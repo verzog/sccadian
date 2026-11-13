@@ -2,7 +2,7 @@
 Theme Name: SCCA
 Description: Block theme for the Skin Cancer College Australasia website, with reusable section patterns.
 Author: Skin Cancer College Australasia
-Version: 0.8.0
+Version: 0.9.0
 Requires at least: 6.6
 Tested up to: 6.9
 Requires PHP: 8.1
@@ -522,4 +522,100 @@ Text Domain: scca
 	color: var(--wp--preset--color--purple);
 	font-weight: 700;
 	text-decoration: none;
+}
+
+/*
+ * Members' blog post (templates/single-wormiss_blog.html, Wormiss): the news article's band
+ * and reading width, with the author beside the date. Wormiss lays the post out with simple
+ * Bootstrap-style classes (row, col-md, figure, table, card, alert) inside .wormiss-blog-post;
+ * these give them the theme's colours.
+ */
+.scca-blog-hero__byline {
+	gap: var(--wp--preset--spacing--30);
+	align-items: baseline;
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 700;
+}
+
+.scca-blog-hero .scca-blog-hero__author::before {
+	content: "By ";
+	font-weight: 400;
+}
+
+.scca-blog .wormiss-blog-post hr {
+	margin: var(--wp--preset--spacing--50) 0;
+	border: 0;
+	border-top: 1px solid var(--wp--preset--color--border);
+}
+
+.scca-blog .wormiss-blog-post .table th {
+	background: var(--wp--preset--color--lavender);
+	color: var(--wp--preset--color--purple-dark);
+}
+
+.scca-blog .wormiss-blog-post .table th,
+.scca-blog .wormiss-blog-post .table td {
+	border-color: var(--wp--preset--color--border);
+}
+
+.scca-blog .wormiss-blog-post .blockquote {
+	border-left-color: var(--wp--preset--color--orange);
+	color: var(--wp--preset--color--purple-dark);
+}
+
+.scca-blog .wormiss-blog-post .card {
+	border-color: var(--wp--preset--color--purple);
+}
+
+.scca-blog .wormiss-blog-post .card-header {
+	background: var(--wp--preset--color--purple);
+	border-bottom: 0;
+	color: var(--wp--preset--color--white);
+}
+
+.scca-blog .wormiss-blog-post .card-header .h5 {
+	color: var(--wp--preset--color--white);
+}
+
+.scca-blog .wormiss-blog-post .alert {
+	border-color: var(--wp--preset--color--lavender);
+	background: var(--wp--preset--color--lavender);
+	color: var(--wp--preset--color--purple-dark);
+}
+
+.scca-blog .wormiss-blog-post .alert a {
+	color: var(--wp--preset--color--purple);
+	font-weight: 700;
+}
+
+.scca-blog-comments {
+	margin-top: var(--wp--preset--spacing--60);
+	padding-top: var(--wp--preset--spacing--40);
+	border-top: 1px solid var(--wp--preset--color--border);
+}
+
+.scca-blog-comment {
+	margin-bottom: var(--wp--preset--spacing--40);
+	padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--40);
+	border-radius: 8px;
+	background: var(--wp--preset--color--grey-light);
+}
+
+.scca-blog-comment__meta {
+	gap: var(--wp--preset--spacing--20);
+	align-items: baseline;
+}
+
+.scca-blog-comment__meta .wp-block-comment-author-name {
+	color: var(--wp--preset--color--purple);
+	font-weight: 700;
+}
+
+.scca-blog-comment__meta .wp-block-comment-date {
+	color: var(--wp--preset--color--muted);
+	font-size: var(--wp--preset--font-size--small);
+}
+
+.scca-blog-comments .wp-block-comment-template ol {
+	margin-left: var(--wp--preset--spacing--40);
 }

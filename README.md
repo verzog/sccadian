@@ -68,6 +68,10 @@ All are under *SCCA sections* in the block inserter:
 * **Category and topic pages** (`category.html`, `tag.html`, e.g. `/category/news/` or `/tag/advocacy/`): the same band with the category or topic name and its description, then its news cards.
 * **News article** (`single.html`): a purple band with the category, title and date (DD/MM/YYYY); the featured image and text at a comfortable reading width; the article's topic chips; previous and next articles; *All news*; then the latest news. News imported by the Wormiss plugin (its iMIS news import) gets its iMIS tags as topics. Members-only articles show their teaser to visitors, as Wormiss decides.
 
+## Members' blog (Wormiss)
+
+* **Blog post** (`single-wormiss_blog.html`, at `/blogs/<post>/`): the news article's purple band with the blog category, title, author and date (DD/MM/YYYY); the header picture and text at a comfortable reading width; the post's topic chips; the discussion (comments with replies, for readers); previous and next posts; *All blog posts* (`/blogs/`). Wormiss decides who sees what: non-readers get the intro and a members-only message, readers the full post and, from its reveal time, the solution. Wormiss lays posts out with simple Bootstrap-style classes (rows of columns, figures, tables, a solution card, message boxes); the theme gives them its colours.
+
 ## Event pages (Wormiss)
 
 With the Wormiss plugin active, its Events use their own templates:
