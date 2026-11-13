@@ -496,7 +496,10 @@ Text Domain: scca
 	text-decoration: none;
 }
 
-.scca-article__date {
+/* The date's grey (theme.json) is unreadable on purple: white in the band. */
+.scca-news-hero .scca-article__date {
+	color: var(--wp--preset--color--white);
+	font-size: var(--wp--preset--font-size--small);
 	font-weight: 700;
 }
 
