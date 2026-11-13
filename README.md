@@ -62,6 +62,12 @@ All are under *SCCA sections* in the block inserter:
 | Post grid (hidden) | The same news cards with pagination, used by the blog, archive and search templates |
 | Event grid (hidden) | Event cards (image, title, event type, summary, Event details) with pagination, used by the events listing and event type pages |
 
+## News pages
+
+* **News listing** (`home.html`): the page set as *Posts page* under *Settings > Reading*. Create a page called **News** with the address `/news/` (the *Latest news* section's *All News* button and each article's *All news* link go there) and choose it as the Posts page. It shows a purple band with the heading, a short introduction and **topic chips** (the post tags), then the news cards, 12 to a page.
+* **Category and topic pages** (`category.html`, `tag.html`, e.g. `/category/news/` or `/tag/advocacy/`): the same band with the category or topic name and its description, then its news cards.
+* **News article** (`single.html`): a purple band with the category, title and date (DD/MM/YYYY); the featured image and text at a comfortable reading width; the article's topic chips; previous and next articles; *All news*; then the latest news. News imported by the Wormiss plugin (its iMIS news import) gets its iMIS tags as topics. Members-only articles show their teaser to visitors, as Wormiss decides.
+
 ## Event pages (Wormiss)
 
 With the Wormiss plugin active, its Events use their own templates:

@@ -2,7 +2,7 @@
 Theme Name: SCCA
 Description: Block theme for the Skin Cancer College Australasia website, with reusable section patterns.
 Author: Skin Cancer College Australasia
-Version: 0.7.0
+Version: 0.8.0
 Requires at least: 6.6
 Tested up to: 6.9
 Requires PHP: 8.1
@@ -427,4 +427,96 @@ Text Domain: scca
 .scca-join-band a:focus-visible {
 	outline: 2px solid var(--wp--preset--color--white);
 	outline-offset: 2px;
+}
+
+/*
+ * News (templates/home.html, category.html, tag.html, single.html): a purple band with the
+ * title, an introduction and topic chips (the post tags, from iMIS for imported news), then
+ * the news cards. A news article reads at a comfortable width under the same band.
+ */
+.scca-news-hero {
+	padding-top: var(--wp--preset--spacing--60);
+	padding-bottom: var(--wp--preset--spacing--50);
+}
+
+.scca-news-hero .scca-news-hero__title {
+	margin-top: 0;
+	color: var(--wp--preset--color--white);
+}
+
+.scca-news-hero__intro {
+	max-width: 46rem;
+	font-size: var(--wp--preset--font-size--large);
+}
+
+.scca-topics {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--wp--preset--spacing--20);
+	margin-top: var(--wp--preset--spacing--40);
+}
+
+.scca-topics a {
+	display: inline-block;
+	padding: 6px 14px;
+	border: 1px solid currentcolor;
+	border-radius: 999px;
+	color: inherit;
+	font-size: var(--wp--preset--font-size--small);
+	line-height: 1.4;
+	text-decoration: none;
+}
+
+.scca-topics a:hover,
+.scca-topics a:focus-visible {
+	background: var(--wp--preset--color--orange);
+	border-color: var(--wp--preset--color--orange);
+	color: var(--wp--preset--color--purple-dark);
+}
+
+/* The separators WordPress puts between a post's tags are not needed between chips. */
+.scca-topics .wp-block-post-terms__separator {
+	display: none;
+}
+
+.scca-news-hero .wp-block-tag-cloud a {
+	margin: 0;
+}
+
+.scca-article__category {
+	color: var(--wp--preset--color--orange);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+
+.scca-article__category a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.scca-article__date {
+	font-weight: 700;
+}
+
+.scca-article__image img {
+	width: 100%;
+	border-radius: 8px;
+}
+
+.scca-article .scca-article__tags {
+	color: var(--wp--preset--color--purple);
+}
+
+.scca-article__nav {
+	margin-top: var(--wp--preset--spacing--50);
+	padding-top: var(--wp--preset--spacing--40);
+	border-top: 1px solid var(--wp--preset--color--border);
+}
+
+.scca-article__back a {
+	color: var(--wp--preset--color--purple);
+	font-weight: 700;
+	text-decoration: none;
 }
