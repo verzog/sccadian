@@ -2,7 +2,7 @@
 Theme Name: SCCA
 Description: Block theme for the Skin Cancer College Australasia website, with reusable section patterns.
 Author: Skin Cancer College Australasia
-Version: 0.9.0
+Version: 0.10.0
 Requires at least: 6.6
 Tested up to: 6.9
 Requires PHP: 8.1
@@ -618,4 +618,79 @@ Text Domain: scca
 
 .scca-blog-comments .wp-block-comment-template ol {
 	margin-left: var(--wp--preset--spacing--40);
+}
+
+/*
+ * Members' blog cards (patterns/blog-grid.php, Wormiss): like the iMIS blog, each card shows
+ * the date and author, the title, a short summary, the category as a purple badge and its
+ * level (the subcategory) as an orange one, then the topics. Wormiss 0.36.0 marks the two
+ * category levels (wormiss-term--category, wormiss-term--subcategory).
+ */
+.scca-blog-card__meta {
+	gap: var(--wp--preset--spacing--20);
+	color: var(--wp--preset--color--muted);
+	font-size: var(--wp--preset--font-size--small);
+}
+
+.scca-blog-card__meta > * {
+	margin: 0;
+}
+
+.scca-blog-card .scca-blog-card__title {
+	margin-top: var(--wp--preset--spacing--20);
+}
+
+.scca-blog-card .scca-blog-card__title a {
+	color: var(--wp--preset--color--purple);
+	text-decoration: none;
+}
+
+.scca-blog-card__summary {
+	font-size: var(--wp--preset--font-size--small);
+}
+
+.scca-blog-badges {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin-top: var(--wp--preset--spacing--20);
+}
+
+.scca-blog-badges .wp-block-post-terms__separator {
+	display: none;
+}
+
+.scca-blog-badges a {
+	display: inline-block;
+	padding: 2px 10px;
+	border-radius: 4px;
+	background: var(--wp--preset--color--purple);
+	color: var(--wp--preset--color--white);
+	font-size: 0.8125rem;
+	font-weight: 700;
+	line-height: 1.6;
+	text-decoration: none;
+}
+
+.scca-blog-badges a.wormiss-term--category {
+	order: -1;
+}
+
+.scca-blog-badges a.wormiss-term--subcategory {
+	background: var(--wp--preset--color--orange);
+	color: var(--wp--preset--color--purple-dark);
+}
+
+.scca-blog-card__topics {
+	margin-top: var(--wp--preset--spacing--20);
+	color: var(--wp--preset--color--muted);
+	font-size: 0.8125rem;
+}
+
+.scca-blog-card__topics a {
+	color: inherit;
+}
+
+.scca-blog-hero .scca-article__back a {
+	color: var(--wp--preset--color--white);
 }
