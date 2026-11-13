@@ -1,17 +1,33 @@
 <!-- wp:template-part {"slug":"header","area":"header","tagName":"header"} /-->
 
-<!-- wp:group {"tagName":"main","className":"scca-section","layout":{"type":"constrained"}} -->
-<main class="wp-block-group scca-section"><!-- wp:post-title {"level":1} /-->
+<!-- wp:group {"tagName":"main","layout":{"type":"default"}} -->
+<main class="wp-block-group"><!-- wp:group {"align":"full","className":"scca-news-hero scca-article-hero","backgroundColor":"purple","textColor":"white","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull scca-news-hero scca-article-hero has-white-color has-purple-background-color has-text-color has-background"><!-- wp:post-terms {"term":"category","className":"scca-article__category"} /-->
 
-<!-- wp:post-date {"format":"d/m/Y"} /-->
+<!-- wp:post-title {"level":1,"className":"scca-news-hero__title"} /-->
 
-<!-- wp:post-featured-image /-->
+<!-- wp:post-date {"format":"d/m/Y","className":"scca-article__date","textColor":"white"} /--></div>
+<!-- /wp:group -->
 
-<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+<!-- wp:group {"className":"scca-section scca-article","layout":{"type":"constrained","contentSize":"780px"}} -->
+<div class="wp-block-group scca-section scca-article"><!-- wp:post-featured-image {"className":"scca-article__image"} /-->
 
-<!-- wp:post-navigation-link {"type":"previous"} /-->
+<!-- wp:post-content {"layout":{"type":"constrained","contentSize":"780px"}} /-->
 
-<!-- wp:post-navigation-link /--></main>
+<!-- wp:post-terms {"term":"post_tag","className":"scca-topics scca-article__tags"} /-->
+
+<!-- wp:group {"className":"scca-article__nav","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group scca-article__nav"><!-- wp:post-navigation-link {"type":"previous"} /-->
+
+<!-- wp:post-navigation-link /--></div>
+<!-- /wp:group -->
+
+<!-- wp:paragraph {"className":"scca-article__back"} -->
+<p class="scca-article__back"><a href="/news/">← All news</a></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:pattern {"slug":"scca/latest-news"} /--></main>
 <!-- /wp:group -->
 
 <!-- wp:template-part {"slug":"footer","area":"footer","tagName":"div"} /-->
