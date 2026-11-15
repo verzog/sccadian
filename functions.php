@@ -76,6 +76,60 @@ function scca_register_pattern_category(): void {
 add_action( 'init', 'scca_register_pattern_category' );
 
 /**
+ * Friendly names for the theme's Wormiss templates (and the posts page), so the Site Editor's
+ * template list says "Blog post" rather than single-wormiss_blog.
+ *
+ * @return array[] Template slug => title and description.
+ */
+function scca_template_names(): array {
+	return [
+		'home'                           => [
+			'title'       => __( 'News list (Blog Home)', 'scca' ),
+			'description' => __( 'The News page: the latest news posts as cards. WordPress calls it Blog Home; it is not the members\' blog.', 'scca' ),
+		],
+		'single-wormiss_blog'            => [
+			'title'       => __( 'Blog post', 'scca' ),
+			'description' => __( 'One members\' blog post: the blog intro and drop-downs, the post, its badges, author card, rail and discussion.', 'scca' ),
+		],
+		'archive-wormiss_blog'           => [
+			'title'       => __( 'Blog home', 'scca' ),
+			'description' => __( 'The members\' blog at /blogs/: the filters, then the post cards.', 'scca' ),
+		],
+		'taxonomy-wormiss_blog_category' => [
+			'title'       => __( 'Blog category', 'scca' ),
+			'description' => __( 'The members\' blog posts in one category or level.', 'scca' ),
+		],
+		'taxonomy-wormiss_blog_topic'    => [
+			'title'       => __( 'Blog topic', 'scca' ),
+			'description' => __( 'The members\' blog posts with one topic (tag).', 'scca' ),
+		],
+		'single-wormiss_event'           => [
+			'title'       => __( 'Event', 'scca' ),
+			'description' => __( 'One event page, with its details and registration.', 'scca' ),
+		],
+		'archive-wormiss_event'          => [
+			'title'       => __( 'Events list', 'scca' ),
+			'description' => __( 'All upcoming events.', 'scca' ),
+		],
+		'taxonomy-wormiss_event_type'    => [
+			'title'       => __( 'Event type', 'scca' ),
+			'description' => __( 'The events of one event type.', 'scca' ),
+		],
+	];
+}
+
+/**
+ * Give WordPress the friendly template names.
+ *
+ * @param array $types Template types: slug => title and description.
+ * @return array
+ */
+function scca_default_template_types( $types ): array {
+	return array_merge( (array) $types, scca_template_names() );
+}
+add_filter( 'default_template_types', 'scca_default_template_types' );
+
+/**
  * Register the theme's own blocks (carousel, card row).
  *
  * @return void

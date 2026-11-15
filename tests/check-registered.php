@@ -97,6 +97,13 @@ foreach ( glob( "$scca_theme_dir/templates/*.html" ) as $scca_file ) {
 	}
 }
 
+$scca_titles = wp_list_pluck( get_block_templates( [], 'wp_template' ), 'title', 'slug' );
+foreach ( scca_template_names() as $scca_slug => $scca_name ) {
+	if ( isset( $scca_titles[ $scca_slug ] ) && $scca_name['title'] !== $scca_titles[ $scca_slug ] ) {
+		$scca_errors[] = "Template $scca_slug is listed as {$scca_titles[ $scca_slug ]}, not {$scca_name['title']}.";
+	}
+}
+
 $scca_parts = wp_list_pluck( get_block_templates( [], 'wp_template_part' ), 'slug' );
 foreach ( [ 'header', 'footer' ] as $scca_slug ) {
 	if ( ! in_array( $scca_slug, $scca_parts, true ) ) {
