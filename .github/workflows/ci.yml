@@ -178,7 +178,8 @@ jobs:
 
       - name: Every page type renders without PHP errors
         run: |
-          wp server --path="$WP_PATH" --host=127.0.0.1 --port=8080 > server.log 2>&1 &
+          # The editor opens with many requests at once; one PHP worker sometimes queued past the 60 s waits.
+          PHP_CLI_SERVER_WORKERS=4 wp server --path="$WP_PATH" --host=127.0.0.1 --port=8080 > server.log 2>&1 &
           for i in $(seq 1 30); do curl -s -o /dev/null "$SITE/" && break; sleep 1; done
           fail=0
           check() {
