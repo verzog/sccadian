@@ -2,7 +2,7 @@
 Theme Name: SCCA
 Description: Block theme for the Skin Cancer College Australasia website, with reusable section patterns.
 Author: Skin Cancer College Australasia
-Version: 0.12.0
+Version: 0.13.0
 Requires at least: 6.6
 Tested up to: 6.9
 Requires PHP: 8.1
@@ -531,6 +531,19 @@ Text Domain: scca
  * the post out with simple Bootstrap-style classes (row, col-md, figure, table, card, alert)
  * inside .wormiss-blog-post; these give them the theme's colours.
  */
+/* The blog's introduction above the drop-downs. */
+.scca-blog-intro {
+	margin: 0 0 var(--wp--preset--spacing--20);
+}
+
+.scca-blog-intro a {
+	color: var(--wp--preset--color--purple);
+}
+
+.scca-blog-faq + .scca-blog-faq {
+	margin-top: var(--wp--preset--spacing--20);
+}
+
 .scca-blog-faq {
 	padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--40);
 	border-radius: 4px;
@@ -580,6 +593,21 @@ Text Domain: scca
 .scca-blog-single .scca-blog-single__title {
 	margin-top: var(--wp--preset--spacing--20);
 	color: var(--wp--preset--color--purple);
+}
+
+/* Below the post: badges and topics between two rules, then the author card. */
+.scca-blog-single__rule {
+	margin: var(--wp--preset--spacing--40) 0;
+	border-top: 1px solid var(--wp--preset--color--border);
+}
+
+.scca-blog-single__terms {
+	gap: var(--wp--preset--spacing--20);
+	align-items: center;
+}
+
+.scca-blog-single__terms > * {
+	margin: 0;
 }
 
 .scca-blog-single__byline {
