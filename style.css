@@ -2,7 +2,7 @@
 Theme Name: SCCA
 Description: Block theme for the Skin Cancer College Australasia website, with reusable section patterns.
 Author: Skin Cancer College Australasia
-Version: 0.15.1
+Version: 0.16.0
 Requires at least: 6.6
 Tested up to: 6.9
 Requires PHP: 8.1
@@ -957,4 +957,40 @@ Text Domain: scca
 
 .scca-documents__list .wp-block-button__link {
 	text-align: left;
+}
+
+/* Sub-category buttons (event types and the like): pills, the one shown filled. */
+.scca-term-buttons {
+	margin: var(--wp--preset--spacing--30) 0 var(--wp--preset--spacing--40);
+}
+
+.scca-term-buttons__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--wp--preset--spacing--20);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.scca-term-buttons__button {
+	display: inline-block;
+	padding: 0.45rem 1rem;
+	border: 1px solid var(--wp--preset--color--purple);
+	border-radius: 999px;
+	color: var(--wp--preset--color--purple);
+	font-size: 0.9375rem;
+	font-weight: 600;
+	line-height: 1.2;
+	text-decoration: none;
+}
+
+.scca-term-buttons__button:hover,
+.scca-term-buttons__button:focus-visible {
+	background: var(--wp--preset--color--lavender);
+}
+
+.scca-term-buttons__button.is-current {
+	background: var(--wp--preset--color--purple);
+	color: var(--wp--preset--color--white);
 }

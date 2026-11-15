@@ -90,7 +90,7 @@ In Appearance > Editor > Templates the Wormiss templates have plain names: *Blog
 With the Wormiss plugin active, its Events use their own templates:
 
 * **Single event** (`single-wormiss_event.html`): a purple hero with the event type and title beside the featured image; the page content beside an **Event information** box holding Wormiss's *Event facts* block (when, where, places left, Register) and, for editors only, its *iMIS settings* block; then a grey band with the *CPD information* block. The box and band are hidden when they have nothing to show. Wormiss 0.28.0 or later opens events in the editor inside this template, so editors type the dates, venue, address, places and CPD lines into the page where they appear. No publish date or previous/next links, as neither is the event's.
-* **Events listing** (`archive-wormiss_event.html`, at `/events/`) and **event type pages** (`taxonomy-wormiss_event_type.html`, at `/event-type/<type>/`): event cards from the *Event grid* pattern.
+* **Events listing** (`archive-wormiss_event.html`, at `/events/`) and **event type pages** (`taxonomy-wormiss_event_type.html`, at `/event-type/<type>/`): event cards from the *Event grid* pattern. An event type page with sub-types (for example Courses with Essential and Advanced under it) shows the *Sub-category buttons* block above the cards: *All Courses*, then a button per sub-type that has events, the one shown filled; on a sub-type's page the same row, with that sub-type filled. The block works for any category-style list and can be added to other category templates.
 
 ## Story components and new-story layouts
 

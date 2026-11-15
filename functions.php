@@ -140,6 +140,7 @@ function scca_register_blocks(): void {
 	register_block_type( __DIR__ . '/blocks/carousel' );
 	register_block_type( __DIR__ . '/blocks/card-row' );
 	register_block_type( __DIR__ . '/blocks/parent-link' );
+	register_block_type( __DIR__ . '/blocks/term-buttons' );
 }
 add_action( 'init', 'scca_register_blocks' );
 

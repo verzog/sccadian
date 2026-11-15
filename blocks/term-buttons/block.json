@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.6/block.json",
+	"apiVersion": 3,
+	"name": "scca/term-buttons",
+	"version": "0.16.0",
+	"title": "Sub-category buttons",
+	"category": "theme",
+	"icon": "tag",
+	"description": "On a category or type page (such as an event type), a row of buttons: \"All\" for the main one, then each sub-category or sub-type (for example Essential, Advanced). The one shown is highlighted. Shows nothing where there are none.",
+	"keywords": [ "sub-category", "sub-type", "filter", "event type" ],
+	"textdomain": "scca",
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}
