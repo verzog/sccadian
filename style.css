@@ -919,6 +919,7 @@ Text Domain: scca
 	}
 
 	.scca-board-member__photo {
+		margin-right: auto;
 		margin-left: auto;
 	}
 }
