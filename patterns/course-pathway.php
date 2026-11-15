@@ -15,7 +15,7 @@
  * Title: Course Education Pathway
  * Slug: scca/course-pathway
  * Categories: scca
- * Description: A page of courses by level, as on the iMIS Course Education Pathway: a purple title band, the introduction with a "Find your Course" box, then a section each for Introductory, Essential, Advanced and Capstone courses and the Fellowship pathway. Each section lists that event type's events still open for enrolment (Wormiss "Open events" block); make the event types Introductory, Essential, Advanced, Capstone and Fellowship (sub-types of Course) and give events those types.
+ * Description: A page of courses by level, as on the iMIS Course Education Pathway: a purple title band, the introduction with a "Find your Course" box, then a section each for Introductory, Essential, Advanced and Capstone courses and the Fellowship pathway. Each section lists that event category's events still open for enrolment (Wormiss "Open events" block); make the event categories Introductory, Essential, Advanced, Capstone and Fellowship (sub-categories of Course) and give events those types.
  *
  * @package    scca
  * @copyright  © Skin Cancer College Australasia
