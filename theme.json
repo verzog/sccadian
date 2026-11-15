@@ -139,6 +139,8 @@
 	],
 	"customTemplates": [
 		{ "name": "page-no-title", "title": "Page without title", "postTypes": [ "page" ] },
-		{ "name": "single-no-featured-image", "title": "Story without featured image", "postTypes": [ "post" ] }
+		{ "name": "single-no-featured-image", "title": "Story without featured image", "postTypes": [ "post" ] },
+		{ "name": "page-board", "title": "Board page", "postTypes": [ "page" ] },
+		{ "name": "page-board-member", "title": "Board member", "postTypes": [ "page" ] }
 	]
 }

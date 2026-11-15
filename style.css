@@ -2,7 +2,7 @@
 Theme Name: SCCA
 Description: Block theme for the Skin Cancer College Australasia website, with reusable section patterns.
 Author: Skin Cancer College Australasia
-Version: 0.14.2
+Version: 0.15.0
 Requires at least: 6.6
 Tested up to: 6.9
 Requires PHP: 8.1
@@ -806,4 +806,117 @@ Text Domain: scca
 /* The blog's listing pages: a category or topic page's name above the filters. */
 .scca-blog-home__title {
 	color: var(--wp--preset--color--purple);
+}
+
+/*
+ * Board page (template "Board page") and a board member's profile (template "Board member"):
+ * a grey band with the title, then round photos on white cards, as on the iMIS site.
+ */
+.scca-board__band {
+	padding-top: var(--wp--preset--spacing--50);
+	padding-bottom: var(--wp--preset--spacing--50);
+	background: var(--wp--preset--color--grey-light);
+}
+
+.scca-board .scca-board__title {
+	margin: 0;
+	color: var(--wp--preset--color--purple);
+}
+
+.scca-board-grid {
+	margin-top: var(--wp--preset--spacing--50);
+}
+
+.scca-board-grid .wp-block-post-template {
+	gap: var(--wp--preset--spacing--40);
+}
+
+.scca-board-card {
+	height: 100%;
+	padding: var(--wp--preset--spacing--40) var(--wp--preset--spacing--30);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: 4px;
+	background: var(--wp--preset--color--white);
+	text-align: center;
+}
+
+.scca-board-card__photo,
+.scca-board-member__photo {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.scca-board-card__photo img,
+.scca-board-member__photo img {
+	border-radius: 50%;
+}
+
+.scca-board .scca-board-card__name {
+	margin: var(--wp--preset--spacing--30) 0 0;
+	font-size: 1.125rem;
+	font-weight: 500;
+}
+
+.scca-board-card__name a {
+	color: var(--wp--preset--color--purple);
+	text-decoration: none;
+}
+
+.scca-board-card__name a:hover,
+.scca-board-card__name a:focus-visible {
+	text-decoration: underline;
+}
+
+.scca-board-card__role,
+.scca-board-member__role {
+	margin: 0.25rem 0 0;
+	color: var(--wp--preset--color--purple-dark);
+}
+
+.scca-board-card__role p,
+.scca-board-member__role p {
+	margin: 0;
+}
+
+.scca-board-member__role {
+	font-size: 1.25rem;
+}
+
+.scca-board-member__bio {
+	margin-top: var(--wp--preset--spacing--50);
+}
+
+.scca-parent-link {
+	margin: 0;
+}
+
+.scca-parent-link a {
+	color: var(--wp--preset--color--purple);
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.scca-parent-link a:hover,
+.scca-parent-link a:focus-visible {
+	text-decoration: underline;
+}
+
+/* Relevant documents box (pattern): purple, with a button per document. */
+.scca-documents {
+	padding: var(--wp--preset--spacing--40);
+	border-radius: 4px;
+	background: var(--wp--preset--color--purple);
+	color: var(--wp--preset--color--white);
+}
+
+.scca-documents .scca-documents__title {
+	margin: 0 0 var(--wp--preset--spacing--30);
+	padding-bottom: var(--wp--preset--spacing--20);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+	color: var(--wp--preset--color--white);
+	font-size: 1.25rem;
+}
+
+.scca-documents__list .wp-block-button__link {
+	text-align: left;
 }

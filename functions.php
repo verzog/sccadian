@@ -32,6 +32,8 @@ function scca_setup(): void {
 	add_theme_support( 'wp-block-styles' );
 	add_theme_support( 'editor-styles' );
 	add_editor_style( 'style.css' );
+	// Pages get an excerpt box: a board member's role (e.g. President) goes there.
+	add_post_type_support( 'page', 'excerpt' );
 }
 add_action( 'after_setup_theme', 'scca_setup' );
 
@@ -137,6 +139,7 @@ add_filter( 'default_template_types', 'scca_default_template_types' );
 function scca_register_blocks(): void {
 	register_block_type( __DIR__ . '/blocks/carousel' );
 	register_block_type( __DIR__ . '/blocks/card-row' );
+	register_block_type( __DIR__ . '/blocks/parent-link' );
 }
 add_action( 'init', 'scca_register_blocks' );
 
@@ -237,3 +240,28 @@ function scca_column_span_script(): void {
 	);
 }
 add_action( 'enqueue_block_editor_assets', 'scca_column_span_script' );
+
+/**
+ * A query marked "sccaChildrenOf": "current" (the Board page's grid) lists the pages under the
+ * page being viewed, so each board member is a page under Our Board and shows up by itself.
+ *
+ * @param array    $query Query variables.
+ * @param WP_Block $block The Post Template block.
+ * @return array
+ */
+function scca_children_query( $query, $block ): array {
+	$query = (array) $query;
+	if ( ! $block instanceof WP_Block || 'current' !== ( $block->context['query']['sccaChildrenOf'] ?? '' ) ) {
+		return $query;
+	}
+	$query['post_type']   = 'page';
+	$query['post_status'] = 'publish';
+	if ( is_page() ) {
+		$query['post_parent'] = (int) get_queried_object_id();
+	} else {
+		// Anywhere but a page (such as a search), nothing.
+		$query['post__in'] = [ 0 ];
+	}
+	return $query;
+}
+add_filter( 'query_loop_block_query_vars', 'scca_children_query', 10, 2 );

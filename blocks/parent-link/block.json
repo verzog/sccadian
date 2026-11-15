@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.6/block.json",
+	"apiVersion": 3,
+	"name": "scca/parent-link",
+	"version": "0.15.0",
+	"title": "Back to parent page",
+	"category": "theme",
+	"icon": "arrow-left-alt2",
+	"description": "A \"Back to …\" link to the page this page sits under (for example, from a board member's profile back to Our Board). Shows nothing on a top-level page.",
+	"keywords": [ "back", "parent", "board" ],
+	"textdomain": "scca",
+	"usesContext": [ "postId", "postType" ],
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}
