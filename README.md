@@ -71,7 +71,7 @@ All are under *SCCA sections* in the block inserter:
 ## Board page and member profiles
 
 * **Board page** (page template): a grey band with the page's title, the page's own text (for example the introduction beside the *Relevant documents* box pattern), then a card for every published page under it: the member's photo in a circle, their name and their role, each linking to their profile. Cards follow the pages' *Order* (Page attributes), then the title.
-* **Board member** (page template): *Back to Our Board* (the page it sits under), the member's photo in a circle beside their name and role, then their biography (the page's text).
+* **Board member** (page template): a purple band with *Back to Our Board* (the page it sits under) and the member's photo in a circle beside their name and role in white, then their biography (the page's text), all lined up with the header.
 
 To set it up: give the *Our Board* page the **Board page** template. For each member, add a page with *Our Board* as its **Parent**, the **Board member** template, their photo as the **Featured image**, their role (e.g. President) in the **Excerpt** box, their biography as the page's text, and an **Order** number (1 for the President, 2 for the next, and so on). The member then appears on the Board page by themselves; take them off by unpublishing their page. In the Site Editor the grid's preview lists every page; on the site it lists only the pages under the one shown.
 
