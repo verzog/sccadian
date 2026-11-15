@@ -68,6 +68,15 @@ All are under *SCCA sections* in the block inserter:
 * **Category and topic pages** (`category.html`, `tag.html`, e.g. `/category/news/` or `/tag/advocacy/`): the same band with the category or topic name and its description, then its news cards.
 * **News article** (`single.html`): a purple band with the category, title and date (DD/MM/YYYY); the featured image and text at a comfortable reading width; the article's topic chips; previous and next articles; *All news*; then the latest news. News imported by the Wormiss plugin (its iMIS news import) gets its iMIS tags as topics. Members-only articles show their teaser to visitors, as Wormiss decides.
 
+## Board page and member profiles
+
+* **Board page** (page template): a grey band with the page's title, the page's own text (for example the introduction beside the *Relevant documents* box pattern), then a card for every published page under it: the member's photo in a circle, their name and their role, each linking to their profile. Cards follow the pages' *Order* (Page attributes), then the title.
+* **Board member** (page template): *Back to Our Board* (the page it sits under), the member's photo in a circle beside their name and role, then their biography (the page's text).
+
+To set it up: give the *Our Board* page the **Board page** template. For each member, add a page with *Our Board* as its **Parent**, the **Board member** template, their photo as the **Featured image**, their role (e.g. President) in the **Excerpt** box, their biography as the page's text, and an **Order** number (1 for the President, 2 for the next, and so on). The member then appears on the Board page by themselves; take them off by unpublishing their page. In the Site Editor the grid's preview lists every page; on the site it lists only the pages under the one shown.
+
+* **Relevant documents** (section pattern): a purple box headed "Relevant documents" with a button per document; change each button's text and link.
+
 ## Members' blog (Wormiss)
 
 In Appearance > Editor > Templates the Wormiss templates have plain names: *Blog post*, *Blog home*, *Blog category*, *Blog topic*, *Event*, *Events list* and *Event type*, and WordPress's *Blog Home* (the News page) shows as *News list (Blog Home)*. A template edited in the Site Editor before 0.14.1 may keep its old name until it is reset.
