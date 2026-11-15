@@ -68,6 +68,10 @@ All are under *SCCA sections* in the block inserter:
 * **Category and topic pages** (`category.html`, `tag.html`, e.g. `/category/news/` or `/tag/advocacy/`): the same band with the category or topic name and its description, then its news cards.
 * **News article** (`single.html`): a purple band with the category, title and date (DD/MM/YYYY); the featured image and text at a comfortable reading width; the article's topic chips; previous and next articles; *All news*; then the latest news. News imported by the Wormiss plugin (its iMIS news import) gets its iMIS tags as topics. Members-only articles show their teaser to visitors, as Wormiss decides.
 
+## Course Education Pathway
+
+* **Course Education Pathway** (section pattern): a purple title band, the introduction with a *Find your Course* box (links jump to each level), then a section each for Introductory, Essential, Advanced and Capstone courses and the Fellowship pathway. Each section has the Wormiss **Open events** block (Wormiss 0.47.0 or later) set to that level's event type, so it lists the events still open for enrolment, soonest first, and drops each one once its iMIS registration closes. Make the event types *Introductory*, *Essential*, *Advanced*, *Capstone* and *Fellowship* (as sub-types of Course; their slugs must be those words) and give events those types; change a section's type in the block's settings.
+
 ## Board page and member profiles
 
 * **Board page** (page template): a grey band with the page's title, the page's own text (for example the introduction beside the *Relevant documents* box pattern), then a card for every published page under it: the member's photo in a circle, their name and their role, each linking to their profile. Cards follow the pages' *Order* (Page attributes), then the title.

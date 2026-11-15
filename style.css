@@ -2,7 +2,7 @@
 Theme Name: SCCA
 Description: Block theme for the Skin Cancer College Australasia website, with reusable section patterns.
 Author: Skin Cancer College Australasia
-Version: 0.16.0
+Version: 0.17.0
 Requires at least: 6.6
 Tested up to: 6.9
 Requires PHP: 8.1
@@ -993,4 +993,75 @@ Text Domain: scca
 .scca-term-buttons__button.is-current {
 	background: var(--wp--preset--color--purple);
 	color: var(--wp--preset--color--white);
+}
+
+/* Course Education Pathway (pattern): purple title band, intro with the finder box, shaded level sections. */
+.scca-pathway__band {
+	padding-top: var(--wp--preset--spacing--50);
+	padding-bottom: var(--wp--preset--spacing--50);
+}
+
+.scca-pathway__kicker {
+	margin: 0;
+	color: var(--wp--preset--color--orange);
+	font-size: 0.875rem;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.scca-pathway__band .scca-pathway__title {
+	margin: 0.25rem 0 0;
+	color: var(--wp--preset--color--white);
+}
+
+.scca-pathway__lead {
+	color: var(--wp--preset--color--purple);
+	font-size: 1.375rem;
+}
+
+.scca-pathway__points {
+	padding-left: 1.25rem;
+}
+
+.scca-pathway__explore {
+	color: var(--wp--preset--color--purple);
+	font-weight: 600;
+}
+
+.scca-pathway__steps {
+	margin: 0 0 var(--wp--preset--spacing--30);
+	padding-left: 1.25rem;
+}
+
+.scca-pathway__steps li {
+	padding: 0.5rem 0;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.scca-pathway__steps a {
+	color: var(--wp--preset--color--white);
+	text-decoration: none;
+}
+
+.scca-pathway__steps a:hover,
+.scca-pathway__steps a:focus-visible {
+	text-decoration: underline;
+}
+
+.scca-pathway__level--shaded {
+	background: var(--wp--preset--color--grey-light);
+}
+
+.scca-pathway__level .scca-pathway__level-title {
+	margin-bottom: 0.25rem;
+	color: var(--wp--preset--color--purple);
+}
+
+.scca-pathway__level .wormiss-events__title a {
+	color: var(--wp--preset--color--purple);
+	text-decoration: none;
+}
+
+.scca-pathway__level .wormiss-open-events__label {
+	color: var(--wp--preset--color--accent);
 }

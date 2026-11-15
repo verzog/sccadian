@@ -164,6 +164,8 @@ jobs:
           # A post holding every theme pattern, for the editor and front-end checks.
           content=""
           for f in scca/patterns/*.php; do
+            # Patterns built on Wormiss blocks need the plugin, which this site does not have.
+            grep -q '<!-- wp:wormiss/' "$f" && continue
             content="$content<!-- wp:pattern {\"slug\":\"scca/$(basename "$f" .php)\"} /-->"
           done
           # The column layouts (administrators only, so not by slug): their markup as it is.
