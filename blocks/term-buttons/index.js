@@ -30,8 +30,8 @@
 				wp.blockEditor.useBlockProps({className: 'scca-term-buttons'}),
 				el('ul', {className: 'scca-term-buttons__list'}, [
 					button(__('All', 'scca'), true),
-					button(__('Sub-type', 'scca'), false),
-					button(__('Sub-type', 'scca') + ' 2', false)
+					button(__('Sub-category', 'scca'), false),
+					button(__('Sub-category', 'scca') + ' 2', false)
 				])
 			);
 		},

@@ -16,7 +16,7 @@
  * Slug: scca/event-grid
  * Categories: scca
  * Inserter: no
- * Description: Event cards for the events listing and event type pages (image, title, event type, summary, Event details), with pagination. No publish date: it is not the event's date.
+ * Description: Event cards for the events listing and event category pages (image, title, event category, summary, Event details), with pagination. No publish date: it is not the event's date.
  *
  * @package    scca
  * @copyright  © Skin Cancer College Australasia

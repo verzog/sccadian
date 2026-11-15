@@ -6,8 +6,8 @@
 	"title": "Sub-category buttons",
 	"category": "theme",
 	"icon": "tag",
-	"description": "On a category or type page (such as an event type), a row of buttons: \"All\" for the main one, then each sub-category or sub-type (for example Essential, Advanced). The one shown is highlighted. Shows nothing where there are none.",
-	"keywords": [ "sub-category", "sub-type", "filter", "event type" ],
+	"description": "On a category page (such as an event category), a row of buttons: \"All\" for the main one, then each sub-category or sub-type (for example Essential, Advanced). The one shown is highlighted. Shows nothing where there are none.",
+	"keywords": [ "sub-category", "filter", "event category" ],
 	"textdomain": "scca",
 	"supports": {
 		"html": false

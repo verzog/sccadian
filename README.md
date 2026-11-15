@@ -60,7 +60,7 @@ All are under *SCCA sections* in the block inserter:
 | Patient resources | Orange band linking to SCAN your Skin |
 | Testimonials | Three quote cards |
 | Post grid (hidden) | The same news cards with pagination, used by the blog, archive and search templates |
-| Event grid (hidden) | Event cards (image, title, event type, summary, Event details) with pagination, used by the events listing and event type pages |
+| Event grid (hidden) | Event cards (image, title, event category, summary, Event details) with pagination, used by the events listing and event category pages |
 
 ## News pages
 
@@ -70,7 +70,7 @@ All are under *SCCA sections* in the block inserter:
 
 ## Course Education Pathway
 
-* **Course Education Pathway** (section pattern): a purple title band, the introduction with a *Find your Course* box (links jump to each level), then a section each for Introductory, Essential, Advanced and Capstone courses and the Fellowship pathway. Each section has the Wormiss **Open events** block (Wormiss 0.47.0 or later) set to that level's event type, so it lists the events still open for enrolment, soonest first, and drops each one once its iMIS registration closes. Make the event types *Introductory*, *Essential*, *Advanced*, *Capstone* and *Fellowship* (as sub-types of Course; their slugs must be those words) and give events those types; change a section's type in the block's settings.
+* **Course Education Pathway** (section pattern): a purple title band, the introduction with a *Find your Course* box (links jump to each level), then a section each for Introductory, Essential, Advanced and Capstone courses and the Fellowship pathway. Each section has the Wormiss **Open events** block (Wormiss 0.47.0 or later) set to that level's event category, so it lists the events still open for enrolment, soonest first, and drops each one once its iMIS registration closes. Make the event categories *Introductory*, *Essential*, *Advanced*, *Capstone* and *Fellowship* (as sub-categories of Course; their slugs must be those words) and give events those types; change a section's type in the block's settings.
 
 ## Board page and member profiles
 
@@ -83,7 +83,7 @@ To set it up: give the *Our Board* page the **Board page** template. For each me
 
 ## Members' blog (Wormiss)
 
-In Appearance > Editor > Templates the Wormiss templates have plain names: *Blog post*, *Blog home*, *Blog category*, *Blog topic*, *Event*, *Events list* and *Event type*, and WordPress's *Blog Home* (the News page) shows as *News list (Blog Home)*. A template edited in the Site Editor before 0.14.1 may keep its old name until it is reset.
+In Appearance > Editor > Templates the Wormiss templates have plain names: *Blog post*, *Blog home*, *Blog category*, *Blog topic*, *Event*, *Events list* and *Event category*, and WordPress's *Blog Home* (the News page) shows as *News list (Blog Home)*. A template edited in the Site Editor before 0.14.1 may keep its old name until it is reset.
 
 * **Blog post** (`single-wormiss_blog.html`, at `/blogs/<post>/`), quiet as on the iMIS blog: the *Blog FAQ* pattern (the blog's introduction with a Blog Code of Conduct link, then the "How does the Skin Cancer Blog work?" and "Can I submit a case to feature on the Blog?" drop-downs; change the text and link in Appearance > Editor), then a column with *Back to posts*, the author, reading time and date beside the post, whose category, title, and author, date (DD/MM/YYYY) and comment count are centred above it; the header picture and text; the category and level badges and topic chips between two rules; the author card (initials, name and biography, Wormiss 0.43.0 or later); the discussion (comments with replies, for readers); previous and next posts. On the right, the *Blog post actions* rail (Wormiss 0.44.0 or later): Like with its count, Save, Comments and Share, staying in view as the post scrolls (above the post on phones). Wormiss decides who sees what (the blog is for members only from Wormiss 0.39.0) and lays posts out with simple Bootstrap-style classes (rows of columns, figures, tables, a solution card, message boxes); the theme gives them its colours. Needs Wormiss 0.40.0 or later for the details column and byline.
 
@@ -93,8 +93,8 @@ In Appearance > Editor > Templates the Wormiss templates have plain names: *Blog
 
 With the Wormiss plugin active, its Events use their own templates:
 
-* **Single event** (`single-wormiss_event.html`): a purple hero with the event type and title beside the featured image; the page content beside an **Event information** box holding Wormiss's *Event facts* block (when, where, places left, Register) and, for editors only, its *iMIS settings* block; then a grey band with the *CPD information* block. The box and band are hidden when they have nothing to show. Wormiss 0.28.0 or later opens events in the editor inside this template, so editors type the dates, venue, address, places and CPD lines into the page where they appear. No publish date or previous/next links, as neither is the event's.
-* **Events listing** (`archive-wormiss_event.html`, at `/events/`) and **event type pages** (`taxonomy-wormiss_event_type.html`, at `/event-type/<type>/`): event cards from the *Event grid* pattern. An event type page with sub-types (for example Courses with Essential and Advanced under it) shows the *Sub-category buttons* block above the cards: *All Courses*, then a button per sub-type that has events, the one shown filled; on a sub-type's page the same row, with that sub-type filled. The block works for any category-style list and can be added to other category templates.
+* **Single event** (`single-wormiss_event.html`): a purple hero with the event category and title beside the featured image; the page content beside an **Event information** box holding Wormiss's *Event facts* block (when, where, places left, Register) and, for editors only, its *iMIS settings* block; then a grey band with the *CPD information* block. The box and band are hidden when they have nothing to show. Wormiss 0.28.0 or later opens events in the editor inside this template, so editors type the dates, venue, address, places and CPD lines into the page where they appear. No publish date or previous/next links, as neither is the event's.
+* **Events listing** (`archive-wormiss_event.html`, at `/events/`) and **event category pages** (`taxonomy-wormiss_event_type.html`, at `/event-type/<type>/`): event cards from the *Event grid* pattern. An event category page with sub-categories (for example Courses with Essential and Advanced under it) shows the *Sub-category buttons* block above the cards: *All Courses*, then a button per sub-category that has events, the one shown filled; on a sub-category's page the same row, with that sub-category filled. The block works for any category-style list and can be added to other category templates.
 
 ## Story components and new-story layouts
 

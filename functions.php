@@ -114,8 +114,8 @@ function scca_template_names(): array {
 			'description' => __( 'All upcoming events.', 'scca' ),
 		],
 		'taxonomy-wormiss_event_type'    => [
-			'title'       => __( 'Event type', 'scca' ),
-			'description' => __( 'The events of one event type.', 'scca' ),
+			'title'       => __( 'Event category', 'scca' ),
+			'description' => __( 'The events of one event category (with its sub-categories).', 'scca' ),
 		],
 	];
 }

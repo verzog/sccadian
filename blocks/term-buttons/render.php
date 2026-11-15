@@ -23,7 +23,7 @@ $scca_term = get_queried_object();
 if ( ! $scca_term instanceof WP_Term || ! is_taxonomy_hierarchical( $scca_term->taxonomy ) ) {
 	return;
 }
-// On a sub-type's page, its brothers and sisters under the same main type.
+// On a sub-category's page, its brothers and sisters under the same main category.
 $scca_main = $scca_term->parent ? get_term( $scca_term->parent, $scca_term->taxonomy ) : $scca_term;
 if ( ! $scca_main instanceof WP_Term ) {
 	return;
@@ -56,6 +56,6 @@ printf(
 	'<nav %1$s aria-label="%2$s"><ul class="scca-term-buttons__list">%3$s</ul></nav>',
 	get_block_wrapper_attributes( [ 'class' => 'scca-term-buttons' ] ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped by WordPress.
 	/* translators: %s: the main category or type, e.g. Courses. */
-	esc_attr( sprintf( __( '%s types', 'scca' ), $scca_main->name ) ),
+	esc_attr( sprintf( __( '%s categories', 'scca' ), $scca_main->name ) ),
 	$scca_items // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped as it is built.
 );
