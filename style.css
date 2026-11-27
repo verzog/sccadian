@@ -2,7 +2,7 @@
 Theme Name: SCCA
 Description: Block theme for the Skin Cancer College Australasia website, with reusable section patterns.
 Author: Skin Cancer College Australasia
-Version: 0.18.2
+Version: 0.18.3
 Requires at least: 6.6
 Tested up to: 6.9
 Requires PHP: 8.1
@@ -1135,4 +1135,18 @@ Text Domain: scca
 .wormiss-section img {
 	max-width: 100%;
 	height: auto;
+}
+
+/*
+ * Imported SVG icons. An SVG with only a viewBox and no width/height has no intrinsic size, so as an
+ * <img> it grows to fill its box — on a phone, where each column is the full width, a decorative tick
+ * or benefit icon balloons to the whole screen. Cap such SVGs to an icon height; they keep their
+ * aspect ratio and still shrink to fit a narrow column. The :not() guards are the escape hatch: give
+ * an image an explicit width or height in the editor and the cap no longer applies, so a diagram sized
+ * on purpose is left at its chosen size.
+ */
+.wormiss-row img[src$=".svg"]:not([width]):not([height]),
+.wormiss-section img[src$=".svg"]:not([width]):not([height]) {
+	max-height: 7.5rem;
+	width: auto;
 }
