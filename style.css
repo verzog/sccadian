@@ -2,7 +2,7 @@
 Theme Name: SCCA
 Description: Block theme for the Skin Cancer College Australasia website, with reusable section patterns.
 Author: Skin Cancer College Australasia
-Version: 0.17.1
+Version: 0.18.0
 Requires at least: 6.6
 Tested up to: 6.9
 Requires PHP: 8.1
@@ -1064,4 +1064,59 @@ Text Domain: scca
 
 .scca-pathway__level .wormiss-open-events__label {
 	color: var(--wp--preset--color--accent);
+}
+
+/*
+ * Imported iMIS pages (Wormiss page import, 0.68.0+). The importer rebuilds each
+ * page's column layout as blocks: .wormiss-section is a full-width band and
+ * .wormiss-row a row of equal columns. These rules give the bands vertical rhythm
+ * and make the rows read like the theme's own card grids, stacking on small
+ * screens (1 column on phones, 2 from 768px, as many as fit from 992px).
+ */
+.wormiss-section {
+	margin-top: var(--wp--preset--spacing--50);
+	margin-bottom: var(--wp--preset--spacing--50);
+}
+
+.wormiss-section.wormiss-heading {
+	margin-top: var(--wp--preset--spacing--60);
+	margin-bottom: var(--wp--preset--spacing--30);
+}
+
+.wormiss-section.wormiss-heading :where(h1, h2, h3) {
+	color: var(--wp--preset--color--purple);
+}
+
+.wormiss-row.wp-block-columns {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--wp--preset--spacing--40);
+	margin-top: var(--wp--preset--spacing--50);
+	margin-bottom: var(--wp--preset--spacing--50);
+	align-items: start;
+}
+
+@media (min-width: 768px) {
+	.wormiss-row.wp-block-columns {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (min-width: 992px) {
+	.wormiss-row.wp-block-columns {
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	}
+}
+
+/* The grid places the columns, so clear the block's own flex sizing. */
+.wormiss-row.wp-block-columns > .wp-block-column {
+	flex-basis: auto;
+	margin: 0;
+}
+
+/* Keep imported media fluid within its column. */
+.wormiss-row img,
+.wormiss-section img {
+	max-width: 100%;
+	height: auto;
 }
