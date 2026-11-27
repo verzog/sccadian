@@ -2,16 +2,18 @@
 Theme Name: SCCA
 Description: Block theme for the Skin Cancer College Australasia website, with reusable section patterns.
 Author: Skin Cancer College Australasia
-Version: 0.18.0
+Version: 0.18.1
 Requires at least: 6.6
 Tested up to: 6.9
 Requires PHP: 8.1
-License: Proprietary — Skin Cancer College Australasia, all rights reserved
+License: GNU General Public License v3 or later
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: scca
 */
 
 /*
- * Copyright (c) Skin Cancer College Australasia. All rights reserved.
+ * Copyright (c) Skin Cancer College Australasia.
+ * The SCCA theme is free software under the GNU GPL v3 or later; see LICENSE.
  * Most styling lives in theme.json. These rules cover only what theme.json cannot express.
  */
 

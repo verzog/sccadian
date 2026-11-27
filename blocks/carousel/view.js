@@ -7,7 +7,7 @@
  * visitors who prefer reduced motion (WCAG 2.2.2).
  *
  * @copyright  © Skin Cancer College Australasia
- * @license    Proprietary — Skin Cancer College Australasia, all rights reserved
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 (function() {

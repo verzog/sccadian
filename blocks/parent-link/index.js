@@ -4,7 +4,7 @@
  * The link is drawn on the server from the page's parent; the editor shows a stand-in.
  *
  * @copyright  © Skin Cancer College Australasia
- * @license    Proprietary — Skin Cancer College Australasia, all rights reserved
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 (function(wp) {
