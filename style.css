@@ -2,7 +2,7 @@
 Theme Name: SCCA
 Description: Block theme for the Skin Cancer College Australasia website, with reusable section patterns.
 Author: Skin Cancer College Australasia
-Version: 0.18.1
+Version: 0.18.2
 Requires at least: 6.6
 Tested up to: 6.9
 Requires PHP: 8.1
@@ -1069,11 +1069,12 @@ Text Domain: scca
 }
 
 /*
- * Imported iMIS pages (Wormiss page import, 0.68.0+). The importer rebuilds each
- * page's column layout as blocks: .wormiss-section is a full-width band and
- * .wormiss-row a row of equal columns. These rules give the bands vertical rhythm
- * and make the rows read like the theme's own card grids, stacking on small
- * screens (1 column on phones, 2 from 768px, as many as fit from 992px).
+ * Imported iMIS pages (Wormiss page import). The importer rebuilds each page's
+ * column layout as blocks: .wormiss-section is a full-width band, and .wormiss-row
+ * a row whose columns carry the template's own widths — the importer sets each as
+ * an inline flex-basis (e.g. two thirds / one third). These rules give the bands
+ * vertical rhythm and lay each row out as a flex row that keeps those widths from
+ * the tablet breakpoint up, stacking to a single column on phones.
  */
 .wormiss-section {
 	margin-top: var(--wp--preset--spacing--50);
@@ -1090,30 +1091,43 @@ Text Domain: scca
 }
 
 .wormiss-row.wp-block-columns {
-	display: grid;
-	grid-template-columns: 1fr;
+	display: flex;
+	flex-wrap: wrap;
 	gap: var(--wp--preset--spacing--40);
 	margin-top: var(--wp--preset--spacing--50);
 	margin-bottom: var(--wp--preset--spacing--50);
 	align-items: start;
 }
 
-@media (min-width: 768px) {
-	.wormiss-row.wp-block-columns {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-	}
-}
-
-@media (min-width: 992px) {
-	.wormiss-row.wp-block-columns {
-		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-	}
-}
-
-/* The grid places the columns, so clear the block's own flex sizing. */
 .wormiss-row.wp-block-columns > .wp-block-column {
-	flex-basis: auto;
 	margin: 0;
+}
+
+/*
+ * Phones: every column is full width, whatever share the template gave it. The
+ * importer sets each width as an inline flex-basis, so this override needs
+ * !important to win over it.
+ */
+@media (max-width: 781px) {
+	.wormiss-row.wp-block-columns > .wp-block-column {
+		flex-basis: 100% !important;
+	}
+}
+
+/*
+ * Tablet and up: keep each column to its template share. A column the importer
+ * sized holds its inline flex-basis and does not grow past it (it still shrinks
+ * to absorb the row gap, so the ratio is kept); a column with no set width (an
+ * equal-column fallback row) shares the row evenly.
+ */
+@media (min-width: 782px) {
+	.wormiss-row.wp-block-columns > .wp-block-column[style*="flex-basis"] {
+		flex-grow: 0;
+	}
+
+	.wormiss-row.wp-block-columns > .wp-block-column:not([style*="flex-basis"]) {
+		flex: 1;
+	}
 }
 
 /* Keep imported media fluid within its column. */
