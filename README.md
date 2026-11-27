@@ -216,7 +216,7 @@ php tests/check-theme.php
 
 ## Licence
 
-Proprietary — Skin Cancer College Australasia, all rights reserved. See `LICENSE`.
+GNU General Public License v3 or later. See `LICENSE`.
 
 ## Third-party
 

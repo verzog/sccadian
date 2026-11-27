@@ -1,15 +1,18 @@
 <?php
-// Copyright (c) Skin Cancer College Australasia.
-// All rights reserved.
+// This file is part of the SCCA WordPress theme.
 //
-// This file is part of a proprietary theme developed by Skin Cancer
-// College Australasia for use with WordPress. It is NOT free software and is
-// NOT released under the GNU General Public License.
+// The SCCA theme is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
 //
-// Unauthorised copying, distribution, modification, or use of this file,
-// in whole or in part, via any medium, is strictly prohibited without the
-// prior written permission of Skin Cancer College Australasia. The software
-// is provided "as is", without warranty of any kind, express or implied.
+// The SCCA theme is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with it. If not, see <https://www.gnu.org/licenses/>.
 
 /**
  * Title: Blog grid
@@ -20,7 +23,7 @@
  *
  * @package    scca
  * @copyright  © Skin Cancer College Australasia
- * @license    Proprietary — Skin Cancer College Australasia, all rights reserved
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 ?>

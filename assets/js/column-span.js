@@ -3,7 +3,7 @@
  * grid (e.g. 4 of 12 is a third). Plain JavaScript (no build step). Loaded for administrators only.
  *
  * @copyright  © Skin Cancer College Australasia
- * @license    Proprietary — Skin Cancer College Australasia, all rights reserved
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 (function(wp) {
